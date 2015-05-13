@@ -33,29 +33,29 @@ Routes are located in core/routes.js
 | :-------------------------------- | :---------------------------- |
 | /thing							| Describe all the thing 		|
 | /thing/gpios 						| List all the thing's GPIOs 	|
-| /thing/gpio/:name 				| Describe the GPIO 			|
-| /thing/gpio/:name/events 			| List all the GPIO's events 	|
-| /thing/gpio/:name/event/:id 		| Describe the event 			|
-| /thing/gpio/:name/jobs 			| List all the GPIO's jobs 		|
-| /thing/gpio/:name/job/:id 		| Describe the job 				|
+| /thing/gpio/:slug 				| Describe the GPIO 			|
+| /thing/gpio/:slug/events 			| List all the GPIO's events 	|
+| /thing/gpio/:slug/event/:id 		| Describe the event 			|
+| /thing/gpio/:slug/jobs 			| List all the GPIO's jobs 		|
+| /thing/gpio/:slug/job/:id 		| Describe the job 				|
 
 ### POST methods
 | URL								| Action						|
 | :-------------------------------- | :---------------------------- |
 | /thing/gpio/add					| Add a new GPIO to the Thing 	|
-| /thing/gpio/:name/event/add 		| Add a new event to a GPIO 	|
-| /thing/gpio/:name/job/add 		| Add a new job to a GPIO 		|
+| /thing/gpio/:slug/event/add 		| Add a new event to a GPIO 	|
+| /thing/gpio/:slug/job/add 		| Add a new job to a GPIO 		|
 
 ### PUT methods
 | URL								| Action						|
 | :-------------------------------- | :---------------------------- |
-| /thing/gpio/:name 				| Edit a GPIO 					|
-| /thing/gpio/:name/event/:id 		| Edit an event to a GPIO 		|
-| /thing/gpio/:name/job/:id 		| Edit a job to a GPIO 			|
+| /thing/gpio/:slug 				| Edit a GPIO 					|
+| /thing/gpio/:slug/event/:id 		| Edit an event to a GPIO 		|
+| /thing/gpio/:slug/job/:id 		| Edit a job to a GPIO 			|
 
 ### DELETE methods
 | URL									| Action						|
 | :------------------------------------ | :---------------------------- |
-| /thing/gpio/:name/delete				| Remove a GPIO to the Thing 	|
-| /thing/gpio/:name/event/:id/delete 	| Remove an event to a GPIO 	|
-| /thing/gpio/:name/job/:id/delete 		| Remove a job to a GPIO 		|
+| /thing/gpio/:slug/delete				| Remove a GPIO to the Thing 	|
+| /thing/gpio/:slug/event/:id/delete 	| Remove an event to a GPIO 	|
+| /thing/gpio/:slug/job/:id/delete 		| Remove a job to a GPIO 		|

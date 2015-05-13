@@ -1,10 +1,16 @@
 var Gpio = require('./gpio');
 
 function Thing (data) {
+	// Build GPIOs
+	var gpio_buid = new Array();
+	data.gpios.forEach(function(element){
+		gpio_buid.push(new Gpio(element));
+	});
+
 	this.name        = data.name;
 	this.description = data.description;
-	this.author      = data.author;	
-	this.gpios       = new Array();
+	this.author      = data.author;
+	this.gpios       = gpio_buid;
 }
   
 Thing.prototype.getName = function() {
@@ -27,11 +33,11 @@ Thing.prototype.addGpio = function(gpio) {
     this.gpios.push(new Gpio(gpio));
 };
 
-Thing.prototype.getGpio = function(name) {
+Thing.prototype.getGpio = function(slug) {
 	var iter = 0;
 	var result = false;
 	while(iter <= this.gpios.length - 1) {
-		if(this.gpios[iter].name == name){
+		if(this.gpios[iter].slug == slug){
 			return this.gpios[iter];
 		}
 		iter++;

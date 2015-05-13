@@ -4,11 +4,7 @@ var app = express();
 // Loading models
 var Thing = require('./core/model/thing');
 
-app.Thing = new Thing({
-	name: 'Micro culture'
-});
-
-app.Thing.addGpio({name: 'moisture'});
+app.Thing = new Thing(require('./conf/thing'));
 
 // Loading controller
 require('./core/controller/thingController')(app);

@@ -1,0 +1,17 @@
+{
+	"name"       : "Plante connectée",
+	"description": "Système de gestion de croissance d'une plante en intérieur",
+	"author"     : "Flavien Rodrigues <rodrigues.flavien@gmail.com>",
+	"gpios"      : [
+		{
+			"name": "capteur humidité",
+			"pin" : "0",
+			"value": "getMoisture"
+		},
+		{
+			"name": "capteur température",
+			"pin" : "1",
+			"value": "getTemperature"
+		}
+	]
+}

@@ -3,13 +3,13 @@
  */
 module.exports = function(Gpio){
 
-	Gpio.prototype.get_moistureValue = function() {
+	Gpio.prototype.getMoisture = function() {
 		//@TODO call groove lib
-	    return 'wet';
+		return Math.random();
 	};
 
-	Gpio.prototype.get_temperatureValue = function() {
+	Gpio.prototype.getTemperature = function() {
 		//@TODO call groove lib
-	    return '17 °';
+		return Math.random();
 	};
 }
