@@ -8,7 +8,6 @@ function Gpio (Thing, data) {
 	this.slug        = slug(this.name);
 	this.description = data.description;
 	this.accessValue = data.value;
-	this.jobs        = new Array();
 
 	// Build Events
 	var gpio_events = new Array();
@@ -18,10 +17,19 @@ function Gpio (Thing, data) {
 	});
 	this.events     = gpio_events;
 
+	var gpio_jobs = new Array();
+	data.jobs.forEach(function(element){
+		gpio_jobs.push(new Job(g, element));
+	});
+	this.jobs        = gpio_jobs;
+
 	gpioStream(this);
 }
 
 var gpioStream = function(gpio) {
+	gpio.jobs.forEach(function(element){
+		element.schedule(gpio);
+	});
 	setInterval(function(){
 		gpio.value = gpio.getValue();
 

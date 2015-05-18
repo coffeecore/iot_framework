@@ -10,8 +10,14 @@
 			"events" : [
 				{
 					"name"     : "event1",
-					"condition": "== 100",
+					"condition": "> 100",
 					"callback" : "event1_callback"
+				}
+			],
+			"jobs" : [
+				{
+					"frequency": "* * * * *",
+					"callback" : "job1_callback"
 				}
 			]
 		},
@@ -19,7 +25,8 @@
 			"name" : "capteur température",
 			"pin"  : "1",
 			"value": "getTemperature",
-			"events": []
+			"events": [],
+			"jobs" : []
 		}
 	]
 }
