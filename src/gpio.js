@@ -5,7 +5,7 @@ module.exports = function(Gpio){
 
 	Gpio.prototype.getMoisture = function() {
 		//@TODO call groove lib
-		return Math.random();
+		return 100;
 	};
 
 	Gpio.prototype.getTemperature = function() {
