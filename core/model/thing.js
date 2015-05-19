@@ -14,11 +14,9 @@ function Thing (data) {
 }
 
 Thing.prototype.run_events = function() {
-	var that = this;
-	console.log(that.gpios);
-	setInterval(function(that){
-		that.gpios.forEach(function(gpio) {
-			gpio.events.forEach(function(e) {
+	setInterval(function(){
+		this.gpios[0].forEach(function(gpio) {
+			gpio.events[0].forEach(function(e) {
 				e.listen();
 			});
 		});
@@ -26,8 +24,8 @@ Thing.prototype.run_events = function() {
 }
 
 Thing.prototype.run_jobs = function() {
-	this.gpios.forEach(function(gpio) {
-		gpio.jobs.forEach(function(j){
+	this.gpios[0].forEach(function(gpio) {
+		gpio.jobs[0].forEach(function(j){
 			j.schedule();
 		});
 	});
