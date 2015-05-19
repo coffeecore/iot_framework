@@ -17,12 +17,7 @@
 					"callback" : "event1_callback"
 				}
 			],
-			"jobs" : [
-				{
-					"frequency": "* * * * *",
-					"callback" : "job1_callback"
-				}
-			]
+			"jobs" : []
 		},
 		{
 			"name" : "capteur lumière",
