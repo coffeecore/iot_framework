@@ -3,6 +3,7 @@
  */
 //Load Grove Moisture modulevar
 var grove_moisture = require('jsupm_grovemoisture');
+var groveSensor    = require('jsupm_grove');
 
 module.exports = function(Gpio){
 
@@ -12,7 +13,7 @@ module.exports = function(Gpio){
 	};
 
 	Gpio.prototype.getTemperature = function() {
-		//@TODO call groove lib
-		return Math.random();
+		var temp = new groveSensor.GroveTemp(parseInt(Gpio.pin));
+		return temp.value();
 	};
 }
