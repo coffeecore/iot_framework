@@ -32,31 +32,11 @@ Thing.prototype.run_jobs = function() {
 	});
 }
 
-// Thing.prototype.setGpios = function(gpios){
-// 	// Build GPIOs
-// 	var gpio_buid = new Array();
-// 	var t = this;
-// 	gpios.forEach(function(element){
-// 		gpio_buid.push(new Gpio(t, element));
-// 	});
-// 	return gpio_buid;
-// }
-
-// Thing.prototype.getName = function() {
-//     return this.name;
-// };
-
-// Thing.prototype.getDescription = function() {
-//     return this.description;
-// };
-
-// Thing.prototype.getAuthor = function() {
-//     return this.author;
-// };
-
-// Thing.prototype.getGpios = function() {
-// 	return this.gpios;
-// };
+Thing.prototype.get = function(){
+	this.gpios.forEach(function(gpio) {
+		gpio.value = gpio.value();
+	});
+}
 
 Thing.prototype.add_gpio = function(gpio) {
     this.gpios.push(new Gpio(gpio));
