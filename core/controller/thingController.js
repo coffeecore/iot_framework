@@ -6,11 +6,11 @@ module.exports = function(app){
 	}
 
 	app.thing_gpiosAction = function(req) {
-		return app.Thing.getGpios();
+		return stringify(app.Thing.getGpios());
 	}
 
 	app.thing_gpio_nameAction = function(req) {
-		return app.Thing.getGpio(req);
+		return stringify(app.Thing.getGpio(req));
 	}
 
 }
