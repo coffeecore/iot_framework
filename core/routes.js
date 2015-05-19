@@ -1,12 +1,12 @@
 module.exports = function(app){
 
-    app.all(function(req, res, next) {
+    var headers = function(res) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        next();
-    });
+    };
 
 	app.get('/', function(req, res, next) {
+        headers(res);
 		res.redirect('/thing');
 	});
 
@@ -15,17 +15,19 @@ module.exports = function(app){
     */
    
    	// Describe all the thing
-    app.get('/thing', function(req, res, next){
+    app.get('/thing', function(req, res){
+        headers(res);
         res.json(app.thingAction());
     });
 
     // List all the thing's GPIOs
-    app.get('/thing/gpios', function(req, res, next){
+    app.get('/thing/gpios', function(req, res){
+        headers(res);
         res.json(app.thing_gpiosAction());
     });
 
     // Describe the GPIO
-    app.get('/thing/gpio/:slug', function(req, res, next){
+    app.get('/thing/gpio/:slug', function(req, res){
         res.json(app.thing_gpio_nameAction(req.params.slug));
     });
 
