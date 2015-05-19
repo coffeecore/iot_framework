@@ -5,6 +5,7 @@ var slug  = require('slug');
 function Gpio (Thing, data) {
 	this.parent      = Thing;
 	this.name        = data.name;
+	this.pin         = data.pin;
 	this.slug        = slug(this.name);
 	this.description = data.description;
 	this.accessValue = data.value;
