@@ -10,9 +10,9 @@ function Event (Gpio, data) {
 var buildCondition = function(conditions){
 	var result = "";
 	conditions.forEach(function(element){
-		result += "this.value"+element+" && ";
+		result += " this.value"+element;
 	});
-	return result+" true";
+	return result;
 };
 
 Event.prototype.listen = function(gpio) {
