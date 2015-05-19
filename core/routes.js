@@ -10,7 +10,7 @@ module.exports = function(app){
    
    	// Describe all the thing
     app.get('/thing', function(req, res){
-        res.json(app.thingAction());
+        res.send(app.thingAction());
     });
 
     // List all the thing's GPIOs
