@@ -24,8 +24,9 @@ function Gpio (data) {
 	this.jobs           = gpio_jobs;
 }
 
-Gpio.prototype.value = 'this.'+this.function_value;
-
+Gpio.prototype.value = function(){
+	return eval('this.'+this.function_value);
+}
 
 Gpio.prototype.get_event = function(id) {
 	var iter = 0;
