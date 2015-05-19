@@ -5,6 +5,7 @@ var app = express();
 var Thing = require('./core/model/thing');
 
 app.Thing = new Thing(require('./conf/thing'));
+console.log(app.Thing);
 app.Thing.run_events();
 app.Thing.run_jobs();
 
