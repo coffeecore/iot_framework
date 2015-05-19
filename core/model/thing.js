@@ -36,6 +36,7 @@ Thing.prototype.get = function(){
 	this.gpios.forEach(function(gpio) {
 		gpio.val = gpio.value();
 	});
+	return this;
 }
 
 Thing.prototype.add_gpio = function(gpio) {
