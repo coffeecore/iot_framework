@@ -6,26 +6,26 @@ module.exports = function(app){
 	}
 
 	app.thing_gpiosAction = function(req) {
-		return stringify(app.Thing.getGpios());
+		return stringify(app.Thing.gpios);
 	}
 
 	app.thing_gpio_nameAction = function(req) {
-		return stringify(app.Thing.getGpio(req));
+		return stringify(app.Thing.get_gpio(req));
 	}
 
 	app.thing_gpio_eventsAction = function(req) {
-		return stringify(app.Thing.getGpio(req).events);
+		return stringify(app.Thing.get_gpio(req).events);
 	}
 
 	app.thing_gpio_eventAction = function(req_slug, req_id) {
-		return stringify(app.Thing.getGpio(req_slug).getEvent(req_id));
+		return stringify(app.Thing.get_gpio(req_slug).getEvent(req_id));
 	}
 
 	app.thing_gpio_jobsAction = function(req) {
-		return stringify(app.Thing.getGpio(req).jobs);
+		return stringify(app.Thing.get_gpio(req).jobs);
 	}
 
 	app.thing_gpio_jobAction = function(req_slug, req_id) {
-		return stringify(app.Thing.getGpio(req_slug).getJob(req_id));
+		return stringify(app.Thing.get_gpio(req_slug).getJob(req_id));
 	}
 }
