@@ -4,7 +4,7 @@ var g = new Generator();
 function Event (data) {
 	var condition = "";
 	data.conditions.forEach(function(element){
-		condition += " this.value"+element;
+		condition += " value"+element;
 	});
 
 	this.id             = g.newId();
@@ -13,18 +13,7 @@ function Event (data) {
 	this.callback       = "this."+data.callback+"()";
 }
 
-// var buildCondition = function(conditions){
-// 	var result = "";
-// 	conditions.forEach(function(element){
-// 		result += " this.value"+element;
-// 	});
-// 	return result;
-// };
-
-Event.prototype.listen = function() {
-	console.log(this.condition);
-	console.log(this.callback);
-	console.log(this.value);
+Event.prototype.listen = function(value) {
 	if( eval(this.condition) ) {
 		eval(this.callback);
 	}
