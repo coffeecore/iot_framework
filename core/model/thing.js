@@ -4,8 +4,7 @@ function Thing (data) {
 	// Build Gpios
 	var thing_gpios = new Array();
 	data.gpios.forEach(function(gpio){
-		var g = new Gpio(gpio);
-		thing_gpios.push(g);
+		thing_gpios.push(new Gpio(gpio));
 	});
 
 	this.name        = data.name;
@@ -15,9 +14,9 @@ function Thing (data) {
 }
 
 Thing.prototype.run_events = function() {
-	console.log(this);
-	setInterval(function(){
-		this.gpios.forEach(function(gpio) {
+	var that = this;
+	setInterval(function(that){
+		that.gpios.forEach(function(gpio) {
 			gpio.events.forEach(function(e) {
 				e.listen();
 			});
