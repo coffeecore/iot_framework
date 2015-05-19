@@ -8,16 +8,18 @@ var groveSensor    = require('jsupm_grove');
 module.exports = function(Gpio){
 
 	Gpio.prototype.getMoisture = function() {
-		if(typeof this.moisture == 'undefined') {
-			this.moisture = new grove_moisture.GroveMoisture(parseInt(this.pin));
-		}
-		return parseInt(this.moisture.value());
+		return Math.random();
+		// if(typeof this.moisture == 'undefined') {
+		// 	this.moisture = new grove_moisture.GroveMoisture(parseInt(this.pin));
+		// }
+		// return parseInt(this.moisture.value());
 	};
 
 	Gpio.prototype.getLight = function() {
-		if(typeof this.light == 'undefined') {
-			this.light = new groveSensor.GroveLight(parseInt(this.pin));
-		}
-		return parseInt(this.light.value());
+		return Math.random();
+		// if(typeof this.light == 'undefined') {
+		// 	this.light = new groveSensor.GroveLight(parseInt(this.pin));
+		// }
+		// return parseInt(this.light.value());
 	};
 }
