@@ -10,6 +10,10 @@ function Gpio (Thing, data) {
 	this.description = data.description;
 	this.accessValue = data.value;
 
+	this.value = function(){
+		return eval('this.'+this.accessValue+'()');
+	};
+
 	// Build Events
 	var gpio_events = new Array();
 	var g = this;
@@ -32,7 +36,7 @@ var gpioStream = function(gpio) {
 		element.schedule(gpio);
 	});
 	setInterval(function(){
-		gpio.value = gpio.getValue();
+		//gpio.value = gpio.getValue();
 
 		gpio.events.forEach(function(element){
 			element.listen(gpio);
