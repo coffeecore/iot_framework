@@ -24,8 +24,8 @@ Thing.prototype.run_events = function() {
 }
 
 Thing.prototype.run_jobs = function() {
-	this.gpios[0].forEach(function(gpio) {
-		gpio.jobs[0].forEach(function(j){
+	this.gpios.forEach(function(gpio) {
+		gpio.jobs.forEach(function(j){
 			j.schedule();
 		});
 	});
