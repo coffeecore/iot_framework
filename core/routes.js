@@ -1,6 +1,8 @@
 module.exports = function(app){
 
 	app.get('/', function(req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
 		res.redirect('/thing');
 	});
 
