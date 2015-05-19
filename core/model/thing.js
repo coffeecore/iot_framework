@@ -3,8 +3,8 @@ var Gpio = require('./gpio');
 function Thing (data) {
 	// Build Gpios
 	var thing_gpios = new Array();
-	data.events.forEach(function(e){
-		thing_gpios.push(new Event(e));
+	data.gpios.forEach(function(gpio){
+		thing_gpios.push(new Gpio(gpio));
 	});
 
 	this.name        = data.name;
