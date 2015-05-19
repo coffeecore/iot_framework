@@ -1,12 +1,14 @@
 module.exports = function(app){
 
-    app.all('/', function(req, res) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        next();
-    });
+    // app.all('/', function(req, res) {
+    //     res.header("Access-Control-Allow-Origin", "*");
+    //     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    //     next();
+    // });
 
 	app.get('/', function(req, res) {
+                res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
 		res.redirect('/thing');
 	});
 
@@ -16,6 +18,8 @@ module.exports = function(app){
    
    	// Describe all the thing
     app.get('/thing', function(req, res){
+                res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         res.json(app.thingAction());
     });
 
