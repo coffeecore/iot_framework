@@ -10,7 +10,8 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "express": "~4.12.3",
+    "node-schedule": "~0.2.6",
     "slug": "~0.9.1",
-    "node-schedule": "~0.2.6"
+    "upm": "0.0.20"
   }
 }
