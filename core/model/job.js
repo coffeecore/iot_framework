@@ -4,7 +4,7 @@ var g = new Generator();
 
 function Job (data) {
 	this.id        = g.newId();
-	this.callback  = "this."+data.callback+"()";
+	this.callback  = data.callback+"()";
 	this.frequency = data.frequency;
 	this.schedules = new Array();
 }
@@ -12,7 +12,7 @@ function Job (data) {
 Job.prototype.schedule = function() {
 	var that = this;
 	var cron = schedule.scheduleJob(this.frequency, function(){
-		eval(that.callback);
+		eval('that.'+that.callback);
 	});
 	this.schedules.push(cron);
 };
