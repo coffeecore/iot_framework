@@ -14,10 +14,10 @@ function Thing (data) {
 }
 
 Thing.prototype.run_events = function() {
-	console.log(this);
+	var that = this;
 	setInterval(function(){
-		console.log(this);
-		this.gpios.forEach(function(gpio) {
+		console.log(that);
+		that.gpios.forEach(function(gpio) {
 			gpio.events.forEach(function(e) {
 				e.listen();
 			});
