@@ -16,7 +16,6 @@ var buildCondition = function(conditions){
 };
 
 Event.prototype.listen = function(gpio) {
-	console.log(this.builtcondition);
 	if( eval(this.builtcondition) ) {
 		eval('this.'+this.callback+'()')
 	}
