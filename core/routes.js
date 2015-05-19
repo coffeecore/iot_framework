@@ -25,22 +25,22 @@ module.exports = function(app){
 
     // List all the GPIO's events
     app.get('/thing/gpio/:slug/events', function(req, res){
-        res.send('@TODO');
+        res.json(app.thing_gpio_eventsAction(req.params.slug));
     });
 
     // Describe the event
     app.get('/thing/gpio/:slug/event/:id', function(req, res){
-        res.send('@TODO');
+        res.json(app.thing_gpio_eventAction(req.params.slug, req.params.id));
     });
 
     // List all the GPIO's jobs
     app.get('/thing/gpio/:slug/jobs', function(req, res){
-        res.send('@TODO');
+        res.json(app.thing_gpio_jobsAction(req.params.slug));
     });
 
     // Describe the job
     app.get('/thing/gpio/:slug/job/:id', function(req, res){
-        res.send('@TODO');
+        res.json(app.thing_gpio_jobAction(req.params.slug, req.params.id));
     });
 
 

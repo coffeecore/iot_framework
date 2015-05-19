@@ -61,6 +61,30 @@ Gpio.prototype.getValue = function() {
     return eval('this.'+this.accessValue+'()');
 };
 
+Gpio.prototype.getEvent = function(id) {
+	var iter = 0;
+	var result = false;
+	while(iter <= this.events.length - 1) {
+		if(this.events[iter].id == id){
+			return this.events[iter];
+		}
+		iter++;
+	}
+	return result;    
+};
+
+Gpio.prototype.getJob = function(id) {
+	var iter = 0;
+	var result = false;
+	while(iter <= this.jobs.length - 1) {
+		if(this.jobs[iter].id == id){
+			return this.jobs[iter];
+		}
+		iter++;
+	}
+	return result;    
+};
+
 require('../../src/gpio')(Gpio);
 
 module.exports = Gpio;

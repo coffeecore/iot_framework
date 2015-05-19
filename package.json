@@ -12,6 +12,7 @@
     "express": "~4.12.3",
     "node-schedule": "~0.2.6",
     "slug": "~0.9.1",
-    "json-stringify-safe": "~5.0.1"
+    "json-stringify-safe": "~5.0.1",
+    "id-generator": "~1.0.0"
   }
 }

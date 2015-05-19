@@ -1,7 +1,10 @@
 var schedule = require('node-schedule');
+var Generator = require('id-generator');
+var g = new Generator();
 
 function Job (Gpio, data) {
 	this.gpio      = Gpio;
+	this.id        = g.newId();
 	this.callback  = data.callback;
 	this.frequency = data.frequency;
 	this.schedules = new Array();

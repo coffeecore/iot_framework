@@ -1,6 +1,10 @@
+var Generator = require('id-generator');
+var g = new Generator();
+
 function Event (Gpio, data) {
 	this.gpio           = Gpio;
 	this.thing          = this.gpio.parent;
+	this.id             = g.newId();
 	this.name           = data.name;
 	this.conditions     = data.conditions;
 	this.builtcondition = buildCondition(this.conditions);
