@@ -11,7 +11,6 @@ module.exports = function(Gpio){
 		if(typeof this.moisture == 'undefined') {
 			this.moisture = new grove_moisture.GroveMoisture(parseInt(this.pin));
 		}
-		console.log(this.name+" : "+parseInt(this.moisture.value()));
 		return parseInt(this.moisture.value());
 	};
 
@@ -19,7 +18,6 @@ module.exports = function(Gpio){
 		if(typeof this.light == 'undefined') {
 			this.light = new groveSensor.GroveLight(parseInt(this.pin));
 		}
-		console.log(this.name+" : "+parseInt(this.light.value()));
 		return parseInt(this.light.value());
 	};
 }
