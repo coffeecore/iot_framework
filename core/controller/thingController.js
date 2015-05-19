@@ -1,7 +1,8 @@
 module.exports = function(app){
 
 	app.thingAction = function(req) {
-		return JSON.stringify(app.Thing);
+		var result = app.Thing;
+		return result;
 	}
 
 	app.thing_gpiosAction = function(req) {
