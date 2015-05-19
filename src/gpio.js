@@ -15,7 +15,7 @@ module.exports = function(Gpio){
 
 	Gpio.prototype.getTemperature = function() {
 		var temp = new groveSensor.GroveTemp(parseInt(this.pin));
-		console.log(this.name+" : "+temp);
+		console.log(this.name+" : "+temp.value());
 		return temp.value();
 	};
 }
