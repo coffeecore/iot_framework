@@ -4,14 +4,29 @@
 	"author"     : "Flavien Rodrigues <rodrigues.flavien@gmail.com>",
 	"gpios"      : [
 		{
-			"name": "capteur humidité",
-			"pin" : "0",
-			"value": "getMoisture"
+			"name" : "capteur humidité",
+			"pin"  : "0",
+			"value": "getMoisture",
+			"events" : [
+				{
+					"name"     : "event1",
+					"condition": "> 100",
+					"callback" : "event1_callback"
+				}
+			],
+			"jobs" : [
+				{
+					"frequency": "* * * * *",
+					"callback" : "job1_callback"
+				}
+			]
 		},
 		{
-			"name": "capteur température",
-			"pin" : "1",
-			"value": "getTemperature"
+			"name" : "capteur lumière",
+			"pin"  : "1",
+			"value": "getLight",
+			"events": [],
+			"jobs" : []
 		}
 	]
 }
