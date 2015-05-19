@@ -2,7 +2,7 @@ var stringify = require('json-stringify-safe');
 module.exports = function(app){
 
 	app.thingAction = function(req) {
-		return stringify(app.Thing.get());
+		return app.Thing.get();
 	}
 
 	app.thing_gpiosAction = function(req) {
