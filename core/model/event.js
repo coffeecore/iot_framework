@@ -22,6 +22,8 @@ function Event (data) {
 // };
 
 Event.prototype.listen = function() {
+	console.log(this.condition);
+	console.log(this.callback);
 	if( eval(this.condition) ) {
 		eval(this.callback);
 	}
