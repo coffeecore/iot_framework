@@ -3,7 +3,6 @@ var Event = require('./event');
 var slug  = require('slug');
 
 function Gpio (Thing, data) {
-	this.parent      = Thing;
 	this.name        = data.name;
 	this.pin         = data.pin;
 	this.slug        = slug(this.name);
@@ -28,7 +27,7 @@ function Gpio (Thing, data) {
 	});
 	this.jobs        = gpio_jobs;
 
-	gpioStream(this);
+	//gpioStream(this);
 }
 
 var gpioStream = function(gpio) {
@@ -36,12 +35,9 @@ var gpioStream = function(gpio) {
 		element.schedule(gpio);
 	});
 	setInterval(function(){
-		//gpio.value = gpio.getValue();
-
 		gpio.events.forEach(function(element){
 			element.listen(gpio);
 		});
-
 	}, 1000);	
 };
 

@@ -4,40 +4,62 @@ function Thing (data) {
 	this.name        = data.name;
 	this.description = data.description;
 	this.author      = data.author;
-	this.gpios       = this.setGpios(data.gpios);
-}
 
-Thing.prototype.setGpios = function(gpios){
-	// Build GPIOs
-	var gpio_buid = new Array();
-	var t = this;
-	gpios.forEach(function(element){
-		gpio_buid.push(new Gpio(t, element));
+	this.gpios       = new Array();
+	data.gpios.forEach(function(gpio) {
+		this.gpios.push(new Gpio(gpio));
 	});
-	return gpio_buid;
 }
 
-Thing.prototype.getName = function() {
-    return this.name;
-};
+Thing.prototype.run_events = function() {
+	setInterval(function(){
+		this.gpios.forEach(function(gpio) {
+			gpio.events.forEach(function(e) {
+				e.listen();
+			});
+		});
+	}, 1000);	
+}
 
-Thing.prototype.getDescription = function() {
-    return this.description;
-};
+Thing.prototype.run_jobs = function() {
+	this.gpios.forEach(function(gpio) {
+		gpio.jobs.forEach(function(j){
+			j.schedule();
+		});
+	});
+}
 
-Thing.prototype.getAuthor = function() {
-    return this.author;
-};
+// Thing.prototype.setGpios = function(gpios){
+// 	// Build GPIOs
+// 	var gpio_buid = new Array();
+// 	var t = this;
+// 	gpios.forEach(function(element){
+// 		gpio_buid.push(new Gpio(t, element));
+// 	});
+// 	return gpio_buid;
+// }
 
-Thing.prototype.getGpios = function() {
-	return this.gpios;
-};
+// Thing.prototype.getName = function() {
+//     return this.name;
+// };
 
-Thing.prototype.addGpio = function(gpio) {
+// Thing.prototype.getDescription = function() {
+//     return this.description;
+// };
+
+// Thing.prototype.getAuthor = function() {
+//     return this.author;
+// };
+
+// Thing.prototype.getGpios = function() {
+// 	return this.gpios;
+// };
+
+Thing.prototype.add_gpio = function(gpio) {
     this.gpios.push(new Gpio(gpio));
 };
 
-Thing.prototype.getGpio = function(slug) {
+Thing.prototype.get_gpio = function(slug) {
 	var iter = 0;
 	var result = false;
 	while(iter <= this.gpios.length - 1) {
