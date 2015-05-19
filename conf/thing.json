@@ -10,7 +10,10 @@
 			"events" : [
 				{
 					"name"     : "event1",
-					"condition": "> 100",
+					"conditions": [
+						"> 100",
+						"== 52"
+					],
 					"callback" : "event1_callback"
 				}
 			],

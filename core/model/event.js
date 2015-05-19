@@ -1,13 +1,23 @@
 function Event (Gpio, data) {
-	this.gpio      = Gpio;
-	this.thing     = this.gpio.parent;
-	this.name      = data.name;
-	this.condition = data.condition;
-	this.callback  = data.callback;
+	this.gpio           = Gpio;
+	this.thing          = this.gpio.parent;
+	this.name           = data.name;
+	this.conditions     = data.conditions;
+	this.builtcondition = buildCondition(this.conditions);
+	this.callback       = data.callback;
 }
 
+var buildCondition = function(conditions){
+	var result = "";
+	conditions.forEach(function(element){
+		result += "this.value"+element+" && ";
+	});
+	return result+" true";
+};
+
 Event.prototype.listen = function(gpio) {
-	if( eval(gpio.value + this.condition) ) {
+	console.log(this.builtcondition);
+	if( eval(this.builtcondition) ) {
 		eval('this.'+this.callback+'()')
 	}
 };
