@@ -25,7 +25,7 @@ function Gpio (data) {
 }
 
 Gpio.prototype.value = function(){
-	eval('this.'+this.function_value);
+	return eval('this.'+this.function_value);
 }
 
 Gpio.prototype.get_event = function(id) {
