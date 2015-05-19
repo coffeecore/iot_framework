@@ -22,9 +22,9 @@
 			]
 		},
 		{
-			"name" : "capteur température",
+			"name" : "capteur lumière",
 			"pin"  : "1",
-			"value": "getTemperature",
+			"value": "getLight",
 			"events": [],
 			"jobs" : []
 		}

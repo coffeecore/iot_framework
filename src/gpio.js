@@ -13,9 +13,9 @@ module.exports = function(Gpio){
 		return parseInt(myMoistureObj.value());
 	};
 
-	Gpio.prototype.getTemperature = function() {
-		var temp = new groveSensor.GroveTemp(parseInt(this.pin));
-		console.log(this.name+" : "+temp.value());
-		return temp.value();
+	Gpio.prototype.getLight = function() {
+		var light = new groveSensor.GroveLight(parseInt(this.pin))
+		console.log(this.name+" : "+light.value());
+		return light.value();
 	};
 }
