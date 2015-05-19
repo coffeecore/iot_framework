@@ -34,7 +34,7 @@ Thing.prototype.run_jobs = function() {
 
 Thing.prototype.get = function(){
 	this.gpios.forEach(function(gpio) {
-		gpio.value = gpio.value();
+		gpio.val = gpio.value();
 	});
 }
 
