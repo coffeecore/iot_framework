@@ -7,7 +7,7 @@ var grove_moisture = require('jsupm_grovemoisture');
 module.exports = function(Gpio){
 
 	Gpio.prototype.getMoisture = function() {
-		var myMoistureObj = new grove_moisture.GroveMoisture(Gpio.pin);
+		var myMoistureObj = new grove_moisture.GroveMoisture(parseInt(Gpio.pin));
 		return parseInt(myMoistureObj.value());
 	};
 
