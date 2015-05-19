@@ -1,7 +1,7 @@
 var Generator = require('id-generator');
 var g = new Generator();
 
-function Event (Gpio, data) {
+function Event (data) {
 	var condition = "";
 	data.conditions.forEach(function(element){
 		condition += " this.value"+element;
