@@ -7,9 +7,6 @@ function Event (Gpio, data) {
 		condition += " this.value"+element;
 	});
 
-	var callback = 'this.'+data.callback+'()'
-
-	this.gpio           = Gpio;
 	this.thing          = this.gpio.parent;
 	this.id             = g.newId();
 	this.name           = data.name;
