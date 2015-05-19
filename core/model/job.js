@@ -12,7 +12,7 @@ function Job (data) {
 Job.prototype.schedule = function() {
 	var that = this;
 	var cron = schedule.scheduleJob(this.frequency, function(){
-		eval(this.callback);
+		eval(that.callback);
 	});
 	this.schedules.push(cron);
 };
