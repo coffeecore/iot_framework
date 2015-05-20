@@ -59,7 +59,7 @@ Thing.prototype.save = function() {
 	}
 
 	this.gpios.forEach(function(gpio){
-		tampon = gpio.save(tampon);
+		gpio.save(tampon);
 	});
 
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {

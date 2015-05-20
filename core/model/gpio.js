@@ -71,7 +71,6 @@ Gpio.prototype.save = function(tampon) {
 			}
 		}
 	});
-	return tampon;
 };
 
 require('../../src/gpio')(Gpio);
