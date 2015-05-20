@@ -66,6 +66,16 @@ module.exports = function(app){
 							}
 						});
 					});
+
+					gpio.jobs.forEach(function(job){
+						g.jobs.forEach(function(j){
+							if(job.id == j.id){
+								if(j.name != job.name) {
+									job.name = j.name;
+								}								
+							}
+						});
+					});
 				}
 			});
 		});

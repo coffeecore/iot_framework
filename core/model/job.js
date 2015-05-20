@@ -19,7 +19,26 @@ Job.prototype.schedule = function() {
 };
 
 Job.prototype.save = function(){
+	var tampon = require('../../conf/thing.json');
+	var that = this;
 
+	tampon.gpios.forEach(function(gpio){
+		gpio.jobs.forEach(function(g){
+			if(that.id == g.id) {
+				if(that.name != g.name) {
+					g.name = that.name;
+				}
+
+				fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log('Job saved : ['+that.id+']');	
+					}	
+				});
+			}
+		});
+	});
 };
 
 require('../../src/gpio_jobs_callbacks')(Job);
