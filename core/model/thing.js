@@ -41,14 +41,14 @@ Thing.prototype.get = function(){
 }
 
 Thing.prototype.save = function() {
-	var tampon = require('../../conf/thing');
+	var tampon = require('../../conf/thing.json');
 
 	if(this.name != tampon.name)
 	{
 		tampon.name = this.name;
 	}
 
-	fs.writeFile('../../conf/thing.json', tampon, function(err) {
+	fs.write('../../conf/thing.json', tampon, function(err) {
 		console.log(err);
 		console.log('It\'s saved!');
 	});
