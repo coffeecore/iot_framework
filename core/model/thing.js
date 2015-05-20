@@ -48,6 +48,20 @@ Thing.prototype.save = function() {
 		tampon.name = this.name;
 	}
 
+	if(this.description != tampon.description)
+	{
+		tampon.description = this.description;
+	}
+
+	if(this.author != tampon.author)
+	{
+		tampon.author = this.author;
+	}
+
+	this.gpios.forEach(function(gpio){
+		tampon = gpio.save(tampon);
+	});
+
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 		if (err) return console.log(err);
 		console.log('It\'s saved!');

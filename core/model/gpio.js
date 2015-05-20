@@ -52,6 +52,28 @@ Gpio.prototype.get_job = function(id) {
 	return result;    
 };
 
+Gpio.prototype.save = function(tampon) {
+	var that = this;
+	tampon.gpios.forEach(function(gpio){
+		if(that.slug == gpio.slug){
+
+			if(that.name != gpio.name) {
+				gpio.name = that.name;
+				gpio.slug = slug(that.name);
+			}
+
+			if(that.pin != gpio.pin) {
+				gpio.pin = that.pin;
+			}
+
+			if(that.description != gpio.description) {
+				gpio.description = that.description;
+			}
+		}
+	});
+	return tampon;
+};
+
 require('../../src/gpio')(Gpio);
 
 module.exports = Gpio;
