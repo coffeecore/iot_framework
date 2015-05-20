@@ -2,7 +2,7 @@ module.exports = function(app){
 
     var headers = function(res) {
         res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "application/json");
+        res.header("Access-Control-Allow-Headers", "Accept");
         res.header("Access-Control-Allow-Methods", "OPTIONS,GET,POST,PUT,DELETE");
     };
 

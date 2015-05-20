@@ -3,9 +3,9 @@ var bodyParser = require("body-parser");
 var app        = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 
 var file_object = require('./conf/thing');
 
