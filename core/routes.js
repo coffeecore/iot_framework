@@ -86,8 +86,8 @@ module.exports = function(app){
 
     // Edit Thing
     app.post('/thing', function(req, res){
-        headers(res);
         console.log(req.body);
+        headers(res);
         res.json(app.thing_editAction(req.body.thing));
     });
    
