@@ -86,9 +86,9 @@ module.exports = function(app){
 
     // Edit Thing
     app.post('/thing', function(req, res){
-        headers(res);
+        res.header("Access-Control-Allow-Origin", "*");
         console.log(req.body);
-        res.send(req.body);
+        res.send(req);
         //res.json(app.thing_editAction(req.body.thing));
     });
    
