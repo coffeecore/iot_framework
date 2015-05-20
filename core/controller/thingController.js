@@ -42,44 +42,62 @@ module.exports = function(app){
 			app.Thing.author = thing.author;
 		}
 
-		thing.gpios.forEach(function(gpio){
-			app.Thing.gpios.forEach(function(g){
-				if(g.id == gpio.id) {
-
+		app.Thing.gpios.forEach(function(gpio){
+			thing.gpios.forEach(function(g){
+				if(gpio.id = g.id) {
 					if(g.name != gpio.name) {
-						g.name = gpio.name;
+						gpio.name = g.name;
 					}
-
+					
 					if(g.pin != gpio.pin){
-						g.pin = gpio.pin;
+						gpio.pin = g.pin;
 					}
 
 					if(g.description != gpio.description){
-						g.description = gpio.description;
-					}
-
-					gpio.events.forEach(function(evt){
-						g.events.forEach(function(e){
-							if(evt.id == e.id) {
-								if(evt.name != e.name) {
-									g.name = evt.name;
-								}
-							}
-						});
-					});
-					// gpio.jobs.forEach(function(job){
-					// 	g.jobs.forEach(function(j){
-					// 		if(job.id == j.id) {
-					// 			if(job.name != j.name) {
-					// 				j.name = job.name;
-					// 			}
-					// 		}
-					// 	});
-					// });
+						gpio.description = g.description;
+					}			
 				}
-			});
-		});
-		console.log(app.Thing);
+			})
+		})
+
+		// thing.gpios.forEach(function(gpio){
+		// 	app.Thing.gpios.forEach(function(g){
+		// 		if(g.id == gpio.id) {
+
+		// 			if(g.name != gpio.name) {
+		// 				g.name = gpio.name;
+		// 			}
+
+		// 			if(g.pin != gpio.pin){
+		// 				g.pin = gpio.pin;
+		// 			}
+
+		// 			if(g.description != gpio.description){
+		// 				g.description = gpio.description;
+		// 			}
+
+		// 			gpio.events.forEach(function(evt){
+		// 				g.events.forEach(function(e){
+		// 					if(evt.id == e.id) {
+		// 						if(evt.name != e.name) {
+		// 							g.name = evt.name;
+		// 						}
+		// 					}
+		// 				});
+		// 			});
+		// 			// gpio.jobs.forEach(function(job){
+		// 			// 	g.jobs.forEach(function(j){
+		// 			// 		if(job.id == j.id) {
+		// 			// 			if(job.name != j.name) {
+		// 			// 				j.name = job.name;
+		// 			// 			}
+		// 			// 		}
+		// 			// 	});
+		// 			// });
+		// 		}
+		// 	});
+		// });
+
 		app.Thing.save();
 	}
 }
