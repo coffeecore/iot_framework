@@ -3,6 +3,7 @@ module.exports = function(app){
     var headers = function(res) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
     };
 
 	app.get('/', function(req, res, next) {
@@ -86,9 +87,9 @@ module.exports = function(app){
 
     // Edit Thing
     app.post('/thing', function(req, res){
-        res.header("Access-Control-Allow-Origin", "*");
+        headers(res);
         console.log(req.body);
-        res.send(req);
+        res.send(req.body);
         //res.json(app.thing_editAction(req.body.thing));
     });
    
