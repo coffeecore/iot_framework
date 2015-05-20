@@ -62,15 +62,13 @@ module.exports = function(app){
 						g.events.forEach(function(e){
 							if(evt.id == e.id) {
 								if(evt.name != e.name) {
-									console.log('found');
-									console.log(evt.name);
-									console.log(g.name);
 									g.name = evt.name;
 								}
 							}
+							console.log(g.name);
 						});
 					});
-
+					console.log(g.name);
 					// gpio.jobs.forEach(function(job){
 					// 	g.jobs.forEach(function(j){
 					// 		if(job.id == j.id) {
