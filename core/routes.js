@@ -29,37 +29,31 @@ module.exports = function(app){
 
     // List all the thing's GPIOs
     app.get('/thing/gpios', function(req, res){
-        headers(res);
         res.json(app.thing_gpiosAction());
     });
 
     // Describe the GPIO
     app.get('/thing/gpio/:slug', function(req, res){
-        headers(res);
         res.json(app.thing_gpio_nameAction(req.params.slug));
     });
 
     // List all the GPIO's events
     app.get('/thing/gpio/:slug/events', function(req, res){
-        headers(res);
         res.json(app.thing_gpio_eventsAction(req.params.slug));
     });
 
     // Describe the event
     app.get('/thing/gpio/:slug/event/:id', function(req, res){
-        headers(res);
         res.json(app.thing_gpio_eventAction(req.params.slug, req.params.id));
     });
 
     // List all the GPIO's jobs
     app.get('/thing/gpio/:slug/jobs', function(req, res){
-        headers(res);
         res.json(app.thing_gpio_jobsAction(req.params.slug));
     });
 
     // Describe the job
     app.get('/thing/gpio/:slug/job/:id', function(req, res){
-        headers(res);
         res.json(app.thing_gpio_jobAction(req.params.slug, req.params.id));
     });
 
@@ -70,19 +64,16 @@ module.exports = function(app){
     
     // Add a new GPIO to the Thing
     app.post('/thing/gpio/add', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
 	// Add a new event to a GPIO    
     app.post('/thing/gpio/:slug/event/add', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
 	// Add a new job to a GPIO    
     app.post('/thing/gpio/:slug/job/add', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
@@ -92,27 +83,22 @@ module.exports = function(app){
     */
 
     // Edit Thing
-    app.post('/thing', function(req, res){
-        console.log(req.body);
-        res.send(req.body);
-        //res.json(app.thing_editAction(req.body.thing));
+    app.put('/thing', function(req, res){
+        res.json(app.thing_editAction(req.body.thing));
     });
    
     // Edit a GPIO
     app.put('/thing/gpio/:slug', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
 	// Edit an event to a GPIO    
     app.put('/thing/gpio/:slug/event', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
 	// Edit a job to a GPIO    
     app.put('/thing/gpio/:slug/job', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
@@ -123,19 +109,16 @@ module.exports = function(app){
 
     // Remove a GPIO to the Thing
     app.delete('/thing/gpio/:slug/delete', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
 	// Remove an event to a GPIO    
     app.delete('/thing/gpio/:slug/event/delete', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 
     // Remove a job to a GPIO    
     app.delete('/thing/gpio/:slug/job/delete', function(req, res){
-        headers(res);
         res.send('@TODO');
     });
 }
