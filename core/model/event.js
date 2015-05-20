@@ -27,13 +27,14 @@ Event.prototype.save = function(){
 	tampon.gpios.forEach(function(gpio){
 		gpio.events.forEach(function(g){
 			if(that.id == g.id) {
+				console.log('found');
 				if(that.name != g.name) {
 					that.name = g.name;
 				}
 			}
 		});
 	});
-
+	console.log(tampon);
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 		if (err) {
 			return console.log(err);
