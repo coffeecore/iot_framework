@@ -62,6 +62,9 @@ module.exports = function(app){
 						g.events.forEach(function(e){
 							if(evt.id == e.id) {
 								if(evt.name != e.name) {
+									console.log('found');
+									console.log(evt.name);
+									console.log(g.name);
 									g.name = evt.name;
 								}
 							}
