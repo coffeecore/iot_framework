@@ -7,6 +7,7 @@ var file_object = require('./conf/thing');
 var Thing = require('./core/model/thing');
 
 app.Thing = new Thing(file_object);
+app.Thing.name = "new name";
 app.Thing.save();
 app.Thing.run_events();
 app.Thing.run_jobs();

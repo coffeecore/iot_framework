@@ -42,14 +42,13 @@ Thing.prototype.get = function(){
 
 Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing');
-	console.log(tampon.name);
-	//console.log(this);
-	// fs.writeFile('../../conf/json', this, function (err, data) {
-	// if (err) {
-	// 	return console.log(err);
-	// }
-	// 	console.log(data);
-	// });
+
+	if(this.name != tampon.name)
+	{
+		tampon.name = this.name;
+	}
+	
+	fs.write('../../conf/thing',tampon);
 }
 
 Thing.prototype.add_gpio = function(gpio) {
