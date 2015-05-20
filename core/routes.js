@@ -1,5 +1,19 @@
 module.exports = function(app){
 
+
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control");
+
+        if (req.method === 'OPTIONS') {
+            res.statusCode = 204;
+            return res.end();
+        } else {
+            return next();
+        }
+    });
+
     var headers = function(res) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Accept");
@@ -87,8 +101,6 @@ module.exports = function(app){
 
     // Edit Thing
     app.post('/thing', function(req, res){
-        headers(res);
-        headers(req);
         console.log(req.body);
         res.send(req.body);
         //res.json(app.thing_editAction(req.body.thing));
