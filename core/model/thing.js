@@ -47,9 +47,8 @@ Thing.prototype.save = function() {
 	{
 		tampon.name = this.name;
 	}
-	console.log(tampon);
 
-	fs.writeFile('../../conf/thing.json', JSON.stringify(tampon), function(err) {
+	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 		if (err) return console.log(err);
 		console.log('It\'s saved!');
 	});
