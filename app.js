@@ -8,8 +8,8 @@ var Thing = require('./core/model/thing');
 
 app.Thing = new Thing(file_object);
 app.Thing.save();
-// app.Thing.run_events();
-// app.Thing.run_jobs();
+app.Thing.run_events();
+app.Thing.run_jobs();
 
 // Loading controller
 require('./core/controller/thingController')(app);
