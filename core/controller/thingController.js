@@ -42,6 +42,24 @@ module.exports = function(app){
 			app.Thing.author = thing.author;
 		}
 
+		thing.gpios.forEach(function(gpio){
+			app.Thing.gpios.forEach(function(g){
+				if(g.id == gpio.id) {
+					if(g.name != gpio.name) {
+						g.name = gpio.name;
+					}
+
+					if(g.pin != gpio.pin){
+						g.pin = gpio.pin;
+					}
+
+					if(g.description != gpio.description){
+						g.description = gpio.description;
+					}
+				}
+			});
+		});
+
 		app.Thing.save();
 	}
 }

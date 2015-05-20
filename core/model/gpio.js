@@ -62,15 +62,15 @@ Gpio.prototype.save = function() {
 		if(gpio.id == that.id) {
 
 			if(that.name != gpio.name){
-					gpio.name = that.name;
+				gpio.name = that.name;
 			}
 
 			if(that.pin != gpio.pin){
-					gpio.pin = that.pin;
+				gpio.pin = that.pin;
 			}
 
 			if(that.description != gpio.description){
-					gpio.description = that.description;
+				gpio.description = that.description;
 			}
 		}
 	});

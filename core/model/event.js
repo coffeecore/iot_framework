@@ -19,9 +19,13 @@ Event.prototype.listen = function(value) {
 	}
 };
 
-Event.prototype.save = function(){
-	
-};
+// Event.prototype.save = function(){
+// 	var tampon = require('../../conf/thing.json');
+
+// 	if(this.name != gpio.name){
+// 		gpio.name = that.name;
+// 	}
+// };
 
 require('../../src/gpio_callback')(Event);
 
