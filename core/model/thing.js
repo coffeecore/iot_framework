@@ -1,4 +1,5 @@
 var Gpio = require('./gpio');
+var fs   = require('fs');
 
 function Thing (data) {
 	// Build Gpios
@@ -37,6 +38,16 @@ Thing.prototype.get = function(){
 		gpio.val = gpio.value();
 	});
 	return this;
+}
+
+Thing.prototype.save = function() {
+	console.log(this);
+	// fs.writeFile('../../conf/json', this, function (err, data) {
+	// if (err) {
+	// 	return console.log(err);
+	// }
+	// 	console.log(data);
+	// });
 }
 
 Thing.prototype.add_gpio = function(gpio) {

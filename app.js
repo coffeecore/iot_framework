@@ -1,12 +1,15 @@
 var express = require('express');
 var app = express();
 
+var file_object = require('./conf/thing');
+
 // Loading models
 var Thing = require('./core/model/thing');
 
-app.Thing = new Thing(require('./conf/thing'));
-app.Thing.run_events();
-app.Thing.run_jobs();
+app.Thing = new Thing(file_object);
+app.Thing.set('./conf/thingtest', "{'name':'toto'}");
+// app.Thing.run_events();
+// app.Thing.run_jobs();
 
 // Loading controller
 require('./core/controller/thingController')(app);
