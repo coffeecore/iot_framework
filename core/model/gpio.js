@@ -65,13 +65,22 @@ Gpio.prototype.save = function() {
 					gpio.name = that.name;
 			}
 
+			if(that.pin != gpio.pin){
+					gpio.pin = that.pin;
+			}
+
+			if(that.description != gpio.description){
+					gpio.description = that.description;
+			}
 		}
 	});
-	
-	console.log(tampon);
+
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
-		if (err) return console.log(err);
-		console.log('Gpio saved!');
+		if (err) {
+			return console.log(err);
+		} else {
+			console.log('Gpio saved : ['+this.id+']');	
+		}	
 	});
 };
 

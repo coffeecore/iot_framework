@@ -34,6 +34,14 @@ module.exports = function(app){
 			app.Thing.name = thing.name;
 		}
 
+		if(thing.description != app.Thing.description){
+			app.Thing.description = thing.description;
+		}
+
+		if(thing.author != app.Thing.author){
+			app.Thing.author = thing.author;
+		}
+
 		app.Thing.save();
 	}
 }

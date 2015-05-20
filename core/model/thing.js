@@ -57,10 +57,13 @@ Thing.prototype.save = function() {
 	{
 		tampon.author = this.author;
 	}
-	console.log(tampon);
+
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
-		if (err) return console.log(err);
-		console.log('Thing saved!');
+		if (err) {
+			return console.log(err);
+		} else {
+			console.log('Thing saved : ['+this.name+']');	
+		}	
 	});
 
 	this.gpios.forEach(function(gpio){
