@@ -27,4 +27,13 @@ module.exports = function(app){
 	app.thing_gpio_jobAction = function(req_slug, req_id) {
 		return app.Thing.get().get_gpio(req_slug).get_job(req_id);
 	}
+
+	app.thing_editAction = function(thing) {
+
+		if(thing.name != app.Thing.name){
+			app.Thing.name = thing.name;
+		}
+
+		app.Thing.save();
+	}
 }

@@ -83,6 +83,12 @@ module.exports = function(app){
     /*
     	PUT method route
     */
+
+    // Edit Thing
+    app.post('/thing', function(req, res){
+        headers(res);
+        res.json(app.thing_editAction(req.params.thing));
+    });
    
     // Edit a GPIO
     app.put('/thing/gpio/:slug', function(req, res){
