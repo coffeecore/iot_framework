@@ -69,6 +69,8 @@ Gpio.prototype.save = function(tampon) {
 			if(that.description != gpio.description) {
 				gpio.description = that.description;
 			}
+			console.log("IN GPIO SAVE");
+			console.log(gpio);
 		}
 	});
 };

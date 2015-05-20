@@ -60,6 +60,8 @@ Thing.prototype.save = function() {
 
 	this.gpios.forEach(function(gpio){
 		gpio.save(tampon);
+		console.log("AFTER GPIO SAVE");
+		console.log(tampon);
 	});
 
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
