@@ -88,7 +88,8 @@ module.exports = function(app){
     app.post('/thing', function(req, res){
         headers(res);
         console.log(req.body);
-        res.json(app.thing_editAction(req.body.thing));
+        res.send(req.body);
+        //res.json(app.thing_editAction(req.body.thing));
     });
    
     // Edit a GPIO
