@@ -44,21 +44,21 @@ module.exports = function(app){
 
 		app.Thing.gpios.forEach(function(gpio){
 			thing.gpios.forEach(function(g){
-				if(gpio.id = g.id) {
+				if(gpio.id == g.id) {
 					if(g.name != gpio.name) {
 						gpio.name = g.name;
 					}
-					
+
 					if(g.pin != gpio.pin){
 						gpio.pin = g.pin;
 					}
 
 					if(g.description != gpio.description){
 						gpio.description = g.description;
-					}			
+					}		
 				}
-			})
-		})
+			});
+		});
 
 		// thing.gpios.forEach(function(gpio){
 		// 	app.Thing.gpios.forEach(function(g){
