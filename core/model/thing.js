@@ -49,7 +49,7 @@ Thing.prototype.save = function() {
 	}
 
 	fs.writeFile('../../conf/thing.json', tampon, function(err) {
-		if (err) throw err;
+		console.log(err);
 		console.log('It\'s saved!');
 	});
 }
