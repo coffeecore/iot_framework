@@ -93,7 +93,7 @@ Thing.prototype.add_gpio = function(gpio) {
 
 	fs.write('./src/gpio.js', f, -2, function(err) {
 		if (err) {
-			return console.log(err);
+			console.log(err);
 		} else {
 			console.log('Gpio function add : ['+new_gpio.name+']');	
 		}	
