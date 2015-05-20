@@ -42,7 +42,8 @@ Thing.prototype.get = function(){
 
 Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing.json');
-
+	var that = this;
+	
 	if(this.name != tampon.name)
 	{
 		tampon.name = this.name;
@@ -62,7 +63,7 @@ Thing.prototype.save = function() {
 		if (err) {
 			return console.log(err);
 		} else {
-			console.log('Thing saved : ['+this.name+']');	
+			console.log('Thing saved : ['+that.name+']');	
 		}	
 	});
 

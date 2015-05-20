@@ -3,9 +3,6 @@ var bodyParser = require("body-parser");
 var app        = express();
 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
 
 var file_object = require('./conf/thing');
 
@@ -13,6 +10,7 @@ var file_object = require('./conf/thing');
 var Thing = require('./core/model/thing');
 
 app.Thing = new Thing(file_object);
+
 app.Thing.run_events();
 app.Thing.run_jobs();
 

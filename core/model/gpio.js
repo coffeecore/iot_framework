@@ -79,9 +79,17 @@ Gpio.prototype.save = function() {
 		if (err) {
 			return console.log(err);
 		} else {
-			console.log('Gpio saved : ['+this.id+']');	
+			console.log('Gpio saved : ['+that.id+']');	
 		}	
 	});
+
+	// this.events.forEach(function(e){
+	// 	e.save();
+	// });
+
+	// this.jobs.forEach(function(j){
+	// 	j.save();
+	// });
 };
 
 require('../../src/gpio')(Gpio);

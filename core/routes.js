@@ -87,20 +87,20 @@ module.exports = function(app){
         res.json(app.thing_editAction(req.body.thing));
     });
    
-    // Edit a GPIO
-    app.put('/thing/gpio/:slug', function(req, res){
-        res.send('@TODO');
-    });
+ //    // Edit a GPIO
+ //    app.put('/thing/gpio/:slug', function(req, res){
+ //        res.send('@TODO');
+ //    });
 
-	// Edit an event to a GPIO    
-    app.put('/thing/gpio/:slug/event', function(req, res){
-        res.send('@TODO');
-    });
+	// // Edit an event to a GPIO    
+ //    app.put('/thing/gpio/:slug/event', function(req, res){
+ //        res.send('@TODO');
+ //    });
 
-	// Edit a job to a GPIO    
-    app.put('/thing/gpio/:slug/job', function(req, res){
-        res.send('@TODO');
-    });
+	// // Edit a job to a GPIO    
+ //    app.put('/thing/gpio/:slug/job', function(req, res){
+ //        res.send('@TODO');
+ //    });
 
 
     /*

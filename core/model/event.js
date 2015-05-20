@@ -19,8 +19,8 @@ Event.prototype.listen = function(value) {
 	}
 };
 
-Event.prototype.getName = function() {
-	return this.name;
+Event.prototype.save = function(){
+	
 };
 
 require('../../src/gpio_callback')(Event);

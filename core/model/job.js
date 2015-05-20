@@ -17,6 +17,10 @@ Job.prototype.schedule = function() {
 	this.schedules.push(cron);
 };
 
+Job.prototype.save = function(){
+	
+};
+
 require('../../src/gpio_jobs_callbacks')(Job);
 
 module.exports = Job;
