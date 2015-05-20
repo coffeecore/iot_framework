@@ -79,7 +79,7 @@ module.exports = function(app){
 				}
 			});
 		});
-		console.log(JSON.stringify(app.Thing));
+		console.log(app.Thing);
 		app.Thing.save();
 	}
 }
