@@ -10,7 +10,7 @@
 			"value": "getMoisture",
 			"events" : [
 				{
-					"id" : "1"
+					"id" : "1",
 					"name"     : "event1",
 					"conditions": [
 						"> 100 ||",
@@ -21,7 +21,7 @@
 			],
 			"jobs" : [
 				{
-					"id"       : "1"
+					"id"       : "1",
 					"name"     : "job1",
 					"frequency": "* * * * *",
 					"callback" : "job1_callback"
