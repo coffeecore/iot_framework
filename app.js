@@ -7,7 +7,7 @@ var file_object = require('./conf/thing');
 var Thing = require('./core/model/thing');
 
 app.Thing = new Thing(file_object);
-app.Thing.set('./conf/thingtest', "{'name':'toto'}");
+app.Thing.save();
 // app.Thing.run_events();
 // app.Thing.run_jobs();
 
