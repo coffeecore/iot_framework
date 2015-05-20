@@ -28,18 +28,18 @@ Event.prototype.save = function(){
 		gpio.events.forEach(function(g){
 			if(that.id == g.id) {
 				if(that.name != g.name) {
-					that.name = g.name;
+					g.name = that.name;
 				}
+
+				fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
+					if (err) {
+						return console.log(err);
+					} else {
+						console.log('Event saved : ['+that.id+']');	
+					}	
+				});
 			}
 		});
-	});
-
-	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
-		if (err) {
-			return console.log(err);
-		} else {
-			console.log('Event saved : ['+that.id+']');	
-		}	
 	});
 };
 

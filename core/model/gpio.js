@@ -72,24 +72,22 @@ Gpio.prototype.save = function() {
 			if(that.description != gpio.description){
 				gpio.description = that.description;
 			}
+
+			fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
+				if (err) {
+					return console.log(err);
+				} else {
+					console.log('Gpio saved : ['+that.id+']');	
+				}	
+			});
+
+			that.events.forEach(function(e){
+				e.save();
+			});
+
 		}
 	});
 
-	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
-		if (err) {
-			return console.log(err);
-		} else {
-			console.log('Gpio saved : ['+that.id+']');	
-		}	
-	});
-
-	this.events.forEach(function(e){
-		e.save();
-	});
-
-	// this.jobs.forEach(function(j){
-	// 	j.save();
-	// });
 };
 
 require('../../src/gpio')(Gpio);
