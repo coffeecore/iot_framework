@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 var file_object = require('./conf/thing');
 
 // Loading models
