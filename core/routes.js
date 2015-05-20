@@ -65,6 +65,7 @@ module.exports = function(app){
     // Add a new GPIO to the Thing
     app.post('/thing/gpio/add', function(req, res){
         app.thing_gpio_addAction(req.body.gpio);
+        res.send();
     });
 
 	// Add a new event to a GPIO    

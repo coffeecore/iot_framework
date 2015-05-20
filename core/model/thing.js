@@ -89,8 +89,8 @@ Thing.prototype.add_gpio = function(gpio) {
 
     this.gpios.push(new_gpio);
 
-    var f = "Gpio.prototype."+new_gpio.function_value.substring(0, new_gpio.function_value.length-2)+" = function(){};";
-    console.log(f);
+    var f = "module.exports = function(Gpio){Gpio.prototype."+new_gpio.function_value.substring(0, new_gpio.function_value.length-2)+" = function(){};}";
+
 	fs.appendFile('./src/gpio.js', f, function(err) {
 		if (err) {
 			console.log(err);

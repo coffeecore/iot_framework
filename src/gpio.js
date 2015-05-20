@@ -5,7 +5,7 @@
 var grove_moisture = require('jsupm_grovemoisture');
 var groveSensor    = require('jsupm_grove');
 
-//module.exports = function(Gpio){
+module.exports = function(Gpio){
 
 	Gpio.prototype.getMoisture = function() {
 		if(typeof this.moisture == 'undefined') {
@@ -21,4 +21,4 @@ var groveSensor    = require('jsupm_grove');
 		return parseInt(this.light.value());
 	};
 
-//}
+}
