@@ -58,15 +58,14 @@ Thing.prototype.save = function() {
 		tampon.author = this.author;
 	}
 
-	this.gpios.forEach(function(gpio){
-		gpio.save(tampon);
-		console.log("AFTER GPIO SAVE");
-		console.log(tampon);
-	});
-
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 		if (err) return console.log(err);
-		console.log('It\'s saved!');
+		console.log('Thing saved!');
+	});
+
+
+	this.gpios.forEach(function(gpio){
+		gpio.save();
 	});
 }
 

@@ -16,6 +16,7 @@ function Gpio (data) {
 	});
 
 	this.name           = data.name;
+	this.id             = data.id;
 	this.pin            = data.pin;
 	this.slug           = slug(this.name);
 	this.description    = data.description;
@@ -52,26 +53,23 @@ Gpio.prototype.get_job = function(id) {
 	return result;    
 };
 
-Gpio.prototype.save = function(tampon) {
+Gpio.prototype.save = function() {
+	var tampon = require('../../conf/thing.json');
 	var that = this;
+
 	tampon.gpios.forEach(function(gpio){
-		if(that.slug == gpio.slug){
+		if(gpio.id == that.id) {
 
-			if(that.name != gpio.name) {
-				gpio.name = that.name;
-				gpio.slug = slug(that.name);
+			if(that.name != gpio.name){
+					gpio.name = that.name;
 			}
 
-			if(that.pin != gpio.pin) {
-				gpio.pin = that.pin;
-			}
-
-			if(that.description != gpio.description) {
-				gpio.description = that.description;
-			}
-			console.log("IN GPIO SAVE");
-			console.log(gpio);
 		}
+	});
+
+	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
+		if (err) return console.log(err);
+		console.log('Gpio saved!');
 	});
 };
 

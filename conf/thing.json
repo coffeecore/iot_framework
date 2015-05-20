@@ -4,6 +4,7 @@
 	"author"     : "Flavien Rodrigues <rodrigues.flavien@gmail.com>",
 	"gpios"      : [
 		{
+			"id" : "0",
 			"name" : "capteur humidité",
 			"pin"  : "0",
 			"value": "getMoisture",
@@ -25,6 +26,7 @@
 			]
 		},
 		{
+			"id" : "1",
 			"name" : "capteur lumière",
 			"pin"  : "1",
 			"value": "getLight",
