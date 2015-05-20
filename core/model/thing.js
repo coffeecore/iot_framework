@@ -43,7 +43,7 @@ Thing.prototype.get = function(){
 Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing');
 	console.log(tampon.name);
-	console.log(this);
+	//console.log(this);
 	// fs.writeFile('../../conf/json', this, function (err, data) {
 	// if (err) {
 	// 	return console.log(err);
