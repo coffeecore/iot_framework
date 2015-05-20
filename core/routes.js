@@ -14,14 +14,7 @@ module.exports = function(app){
         }
     });
 
-    var headers = function(res) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Accept");
-        res.header("Access-Control-Allow-Methods", "OPTIONS,GET,POST,PUT,DELETE");
-    };
-
-	app.get('/', function(req, res, next) {
-        headers(res);
+	app.get('/', function(req, res) {
 		res.redirect('/thing');
 	});
 
@@ -31,7 +24,6 @@ module.exports = function(app){
    
    	// Describe all the thing
     app.get('/thing', function(req, res){
-        headers(res);
         res.json(app.thingAction());
     });
 
