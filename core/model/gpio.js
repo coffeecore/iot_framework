@@ -1,6 +1,7 @@
 var Job   = require('./job');
 var Event = require('./event');
 var slug  = require('slug');
+var fs   = require('fs');
 
 function Gpio (data) {
 	// Build Events
