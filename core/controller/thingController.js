@@ -72,6 +72,9 @@ module.exports = function(app){
 							if(job.id == j.id){
 								if(j.name != job.name) {
 									job.name = j.name;
+								}
+								if(j.frequency != job.frequency) {
+									job.frequency = j.frequency;
 								}								
 							}
 						});

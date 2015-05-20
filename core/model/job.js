@@ -6,6 +6,7 @@ var fs   = require('fs');
 function Job (data) {
 	this.id        = data.id;
 	this.callback  = data.callback+"()";
+	this.name      = data.name;
 	this.frequency = data.frequency;
 	this.schedules = new Array();
 }
@@ -29,6 +30,10 @@ Job.prototype.save = function(){
 					g.name = that.name;
 				}
 
+				if(that.frequency != g.frequency) {
+					g.frequency = that.frequency;
+				}
+				
 				fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 					if (err) {
 						return console.log(err);
