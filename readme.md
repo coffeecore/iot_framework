@@ -59,3 +59,5 @@ Routes are located in core/routes.js
 | /thing/gpio/:slug/delete				| Remove a GPIO to the Thing 	|
 | /thing/gpio/:slug/event/:id/delete 	| Remove an event to a GPIO 	|
 | /thing/gpio/:slug/job/:id/delete 		| Remove a job to a GPIO 		|
+
+ALPHA-1
