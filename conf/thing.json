@@ -35,14 +35,6 @@
 			"value": "getLight",
 			"events": [],
 			"jobs" : []
-		},
-		{
-			"id" : "2",
-			"name" : "capteur range",
-			"pin"  : "2",
-			"value": "getRange",
-			"events": [],
-			"jobs" : []
 		}
 	]
 }

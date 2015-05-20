@@ -4,7 +4,6 @@
 //Load Grove Moisture modulevar
 var grove_moisture = require('jsupm_grovemoisture');
 var groveSensor    = require('jsupm_grove');
-var MaxSonarEZ = require('jsupm_maxsonarez');
 
 module.exports = function(Gpio){
 
@@ -22,10 +21,4 @@ module.exports = function(Gpio){
 		return parseInt(this.light.value());
 	};
 
-	Gpio.prototype.getRange = function(){
-		if(typeof this.range == 'undefined') {
-			this.range = new MaxSonarEZ.MAXSONAREZ(parseInt(this.pin), 5.0);
-		}
-		return this.range.inches();
-	}
 }
