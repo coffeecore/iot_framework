@@ -1,5 +1,6 @@
 var Generator = require('id-generator');
 var g = new Generator();
+var fs   = require('fs');
 
 function Event (data) {
 	var condition = "";

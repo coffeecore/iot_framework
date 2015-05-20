@@ -1,6 +1,7 @@
 var schedule = require('node-schedule');
 var Generator = require('id-generator');
 var g = new Generator();
+var fs   = require('fs');
 
 function Job (data) {
 	this.id        = g.newId();
@@ -18,7 +19,7 @@ Job.prototype.schedule = function() {
 };
 
 Job.prototype.save = function(){
-	
+
 };
 
 require('../../src/gpio_jobs_callbacks')(Job);
