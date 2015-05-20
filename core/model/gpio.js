@@ -83,9 +83,9 @@ Gpio.prototype.save = function() {
 		}	
 	});
 
-	// this.events.forEach(function(e){
-	// 	e.save();
-	// });
+	this.events.forEach(function(e){
+		e.save();
+	});
 
 	// this.jobs.forEach(function(j){
 	// 	j.save();

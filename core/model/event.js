@@ -19,13 +19,28 @@ Event.prototype.listen = function(value) {
 	}
 };
 
-// Event.prototype.save = function(){
-// 	var tampon = require('../../conf/thing.json');
+Event.prototype.save = function(){
+	var tampon = require('../../conf/thing.json');
+	var that = this;
 
-// 	if(this.name != gpio.name){
-// 		gpio.name = that.name;
-// 	}
-// };
+	tampon.gpios.forEach(function(gpio){
+		gpio.events.forEach(function(g){
+			if(that.id == g.id) {
+				if(that.name != g.name) {
+					that.name = g.name;
+				}
+			}
+		});
+	});
+
+	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
+		if (err) {
+			return console.log(err);
+		} else {
+			console.log('Event saved : ['+that.id+']');	
+		}	
+	});
+};
 
 require('../../src/gpio_callback')(Event);
 

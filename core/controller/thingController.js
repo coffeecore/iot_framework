@@ -45,6 +45,7 @@ module.exports = function(app){
 		thing.gpios.forEach(function(gpio){
 			app.Thing.gpios.forEach(function(g){
 				if(g.id == gpio.id) {
+
 					if(g.name != gpio.name) {
 						g.name = gpio.name;
 					}
@@ -56,6 +57,26 @@ module.exports = function(app){
 					if(g.description != gpio.description){
 						g.description = gpio.description;
 					}
+
+					gpio.events.forEach(function(evt){
+						g.events.forEach(function(e){
+							if(evt.id == e.id) {
+								if(evt.name != e.name) {
+									g.name = evt.name;
+								}
+							}
+						});
+					});
+
+					// gpio.jobs.forEach(function(job){
+					// 	g.jobs.forEach(function(j){
+					// 		if(job.id == j.id) {
+					// 			if(job.name != j.name) {
+					// 				j.name = job.name;
+					// 			}
+					// 		}
+					// 	});
+					// });
 				}
 			});
 		});
