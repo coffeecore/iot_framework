@@ -67,7 +67,8 @@ Gpio.prototype.save = function() {
 
 		}
 	});
-
+	
+	console.log(tampon);
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 		if (err) return console.log(err);
 		console.log('Gpio saved!');
