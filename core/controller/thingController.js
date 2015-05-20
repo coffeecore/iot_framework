@@ -65,10 +65,8 @@ module.exports = function(app){
 									g.name = evt.name;
 								}
 							}
-							console.log(g.name);
 						});
 					});
-					console.log(g.name);
 					// gpio.jobs.forEach(function(job){
 					// 	g.jobs.forEach(function(j){
 					// 		if(job.id == j.id) {
@@ -81,7 +79,7 @@ module.exports = function(app){
 				}
 			});
 		});
-
+		console.log(JSON.stringify(app.Thing));
 		app.Thing.save();
 	}
 }
