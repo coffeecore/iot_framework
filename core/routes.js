@@ -2,7 +2,7 @@ module.exports = function(app){
 
     var headers = function(res) {
         res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Content-Type, x-xsrf-token");
+        res.header("Access-Control-Allow-Headers", "application/json");
         res.header("Access-Control-Allow-Methods", "OPTIONS,GET,POST,PUT,DELETE");
     };
 
