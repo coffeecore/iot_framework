@@ -48,7 +48,10 @@ Thing.prototype.save = function() {
 		tampon.name = this.name;
 	}
 
-	fs.writeFile('../../conf/thing.json', tampon, 'utf8');
+	fs.writeFile('../../conf/thing.json', tampon, 'utf8', function(err) {
+		if (err) throw err;
+		console.log('It\'s saved!');
+	});
 }
 
 Thing.prototype.add_gpio = function(gpio) {
