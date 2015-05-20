@@ -28,6 +28,10 @@ module.exports = function(app){
 		return app.Thing.get().get_gpio(req_slug).get_job(req_id);
 	}
 
+	app.thing_gpio_addAction = function(gpio) {
+		app.Thing.add_gpio(gpio);
+	}
+
 	app.thing_editAction = function(thing) {
 
 		if(thing.name != app.Thing.name){

@@ -2,6 +2,8 @@ var Job   = require('./job');
 var Event = require('./event');
 var slug  = require('slug');
 var fs   = require('fs');
+var Generator = require('id-generator');
+var g = new Generator();
 
 function Gpio (data) {
 	// Build Events
@@ -17,7 +19,10 @@ function Gpio (data) {
 	});
 
 	this.name           = data.name;
-	this.id             = data.id;
+	this.id             = g.newId();
+	if(data.id){
+		this.id = data.id;
+	}
 	this.pin            = data.pin;
 	this.slug           = slug(this.name);
 	this.description    = data.description;
@@ -96,34 +101,3 @@ Gpio.prototype.save = function() {
 require('../../src/gpio')(Gpio);
 
 module.exports = Gpio;
-
-// var gpioStream = function(gpio) {
-// 	gpio.jobs.forEach(function(element){
-// 		element.schedule(gpio);
-// 	});
-// 	setInterval(function(){
-// 		gpio.events.forEach(function(element){
-// 			element.listen(gpio);
-// 		});
-// 	}, 1000);	
-// };
-
-// Gpio.prototype.getName = function() {
-//     return this.name;
-// };
-
-// Gpio.prototype.getDescription = function() {
-//     return this.description;
-// };
-
-// Gpio.prototype.getEvents = function() {
-//     return this.events;
-// };
-
-// Gpio.prototype.getJobs = function() {
-//     return this.jobs;
-// };
-
-// Gpio.prototype.getValue = function() {
-//     return eval('this.'+this.accessValue+'()');
-// };

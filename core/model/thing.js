@@ -73,7 +73,21 @@ Thing.prototype.save = function() {
 }
 
 Thing.prototype.add_gpio = function(gpio) {
-    this.gpios.push(new Gpio(gpio));
+	var tampon = require('../../conf/thing.json');
+
+	var new_gpio = new Gpio(gpio);
+
+	tampon.gpios.push(new_gpio);
+
+	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
+		if (err) {
+			return console.log(err);
+		} else {
+			console.log('Gpio add : ['+new_gpio.name+']');	
+		}	
+	});
+
+    this.gpios.push(new_gpio);
 };
 
 Thing.prototype.get_gpio = function(slug) {
