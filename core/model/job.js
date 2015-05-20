@@ -4,7 +4,7 @@ var g = new Generator();
 var fs   = require('fs');
 
 function Job (data) {
-	this.id        = g.newId();
+	this.id        = data.id;
 	this.callback  = data.callback+"()";
 	this.frequency = data.frequency;
 	this.schedules = new Array();

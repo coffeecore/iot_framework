@@ -8,7 +8,7 @@ function Event (data) {
 		condition += " value"+element;
 	});
 
-	this.id             = g.newId();
+	this.id             = data.id;
 	this.name           = data.name;
 	this.condition      = condition;
 	this.callback       = "this."+data.callback+"()";
