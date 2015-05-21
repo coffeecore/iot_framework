@@ -1,11 +1,6 @@
 var Gpio = require('./gpio');
 var fs   = require('fs');
 
-function ThingException(code, message) {
-	this.code    = code;
-	this.message = message;
-}
-
 function Thing (data) {
 	// Build Gpios
 	var thing_gpios = new Array();
@@ -85,7 +80,7 @@ Thing.prototype.add_gpio = function(gpio) {
 Thing.prototype.get_gpio = function(req) {
 
 	if(typeof req.params.slug == 'undefined'){
-		throw new ThingException(400, "missing slug argument");
+		throw new app.AppException(400, "missing slug argument");
 	}
 
 	var iter = 0;
@@ -98,7 +93,7 @@ Thing.prototype.get_gpio = function(req) {
 	}
 
 	if(!result) {
-		throw new ThingException(204, "No content found for "+req.params.slug);	
+		throw new app.AppException(204, "No content found for "+req.params.slug);	
 	}
 
 	return result;

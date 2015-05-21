@@ -23,42 +23,44 @@ module.exports = function(app){
    
    	// Describe all the thing
     app.get('/thing', function(req, res){
-        res.json(app.thingAction());
+        var r = app.thingAction();
+        res.status(r.status_code).json(r);
     });
 
     // List all the thing's GPIOs
     app.get('/thing/gpio', function(req, res){
-        res.json(app.thing_gpiosAction());
+        var r = app.thing_gpiosAction();
+        res.status(r.status_code).json(r);
     });
 
     // Describe the GPIO
     app.get('/thing/gpio/:slug', function(req, res){
         var r = app.thing_gpio_nameAction(req);
-        res.status(r.status_code).send(r);
+        res.status(r.status_code).json(r);
     });
 
     // List all the GPIO's events
     app.get('/thing/gpio/:slug/event', function(req, res){
-        var r = app.thing_gpio_eventsAction(req.params.slug);
-
-        res.status(r.status_code);
-
-        res.json(r);
+        var r = app.thing_gpio_eventsAction(req);
+        res.status(r.status_code)json(r);
     });
 
     // Describe the event
     app.get('/thing/gpio/:slug/event/:id', function(req, res){
-        res.json(app.thing_gpio_eventAction(req.params.slug, req.params.id));
+        var r = app.thing_gpio_eventAction(req);
+        res.status(r.status_code)json(r);
     });
 
     // List all the GPIO's jobs
     app.get('/thing/gpio/:slug/job', function(req, res){
-        res.json(app.thing_gpio_jobsAction(req.params.slug));
+        var r = app.thing_gpio_jobsAction(req);
+        res.status(r.status_code)json(r);
     });
 
     // Describe the job
     app.get('/thing/gpio/:slug/job/:id', function(req, res){
-        res.json(app.thing_gpio_jobAction(req.params.slug, req.params.id));
+        var r = app.thing_gpio_jobAction(req);
+        res.status(r.status_code)json(r);
     });
 
 

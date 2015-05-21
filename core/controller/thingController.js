@@ -58,10 +58,10 @@ module.exports = function(app){
 		return response;
 	}
 
-	app.thing_gpio_eventAction = function(req_slug, req_id) {
+	app.thing_gpio_eventAction = function(req) {
 
 		try {
-		    response.data = app.Thing.get().get_gpio(req_slug).get_event(req_id);
+		    response.data = app.Thing.get().get_gpio(req).get_event(req);
 		}
 		catch(err) {
 			response.status_code = err.code;

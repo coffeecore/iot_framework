@@ -30,7 +30,12 @@ Gpio.prototype.value = function(){
 	return eval('this.'+this.function_value);
 }
 
-Gpio.prototype.get_event = function(id) {
+Gpio.prototype.get_event = function(req) {
+
+	if(typeof req.params.id == 'undefined'){
+		throw new app.AppException(400, "missing id argument");
+	}
+
 	var iter = 0;
 	var result = false;
 	while(iter <= this.events.length - 1) {
@@ -39,6 +44,11 @@ Gpio.prototype.get_event = function(id) {
 		}
 		iter++;
 	}
+	
+	if(!result) {
+		throw new app.AppException(204, "No content found for "+req.params.id);	
+	}
+
 	return result;    
 };
 
