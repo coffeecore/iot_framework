@@ -42,25 +42,25 @@ module.exports = function(app){
     // List all the GPIO's events
     app.get('/thing/gpio/:slug/event', function(req, res){
         var r = app.thing_gpio_eventsAction(req);
-        res.status(r.status_code)json(r);
+        res.status(r.status_code).json(r);
     });
 
     // Describe the event
     app.get('/thing/gpio/:slug/event/:id', function(req, res){
         var r = app.thing_gpio_eventAction(req);
-        res.status(r.status_code)json(r);
+        res.status(r.status_code).json(r);
     });
 
     // List all the GPIO's jobs
     app.get('/thing/gpio/:slug/job', function(req, res){
         var r = app.thing_gpio_jobsAction(req);
-        res.status(r.status_code)json(r);
+        res.status(r.status_code).json(r);
     });
 
     // Describe the job
     app.get('/thing/gpio/:slug/job/:id', function(req, res){
         var r = app.thing_gpio_jobAction(req);
-        res.status(r.status_code)json(r);
+        res.status(r.status_code).json(r);
     });
 
 
