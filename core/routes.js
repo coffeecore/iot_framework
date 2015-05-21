@@ -66,7 +66,7 @@ module.exports = function(app){
         res.json(app.thing_editAction(req.body.thing));
     });
 
-    // Edit Thing
+    // Edit GPIO
     app.put('/thing/gpio', function(req, res){
         res.json(app.thing_gpio_editAction(req));
     });
