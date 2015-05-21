@@ -34,7 +34,7 @@ module.exports = function(app){
     // Describe the GPIO
     app.get('/thing/gpio/:slug', function(req, res){
         var r = app.thing_gpio_nameAction(req);
-        res.status(204).json(r);
+        res.status(204).send(r);
     });
 
     // List all the GPIO's events
