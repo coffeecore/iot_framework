@@ -1,6 +1,5 @@
 module.exports = function(app){
 
-
     app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
@@ -28,17 +27,17 @@ module.exports = function(app){
     });
 
     // List all the thing's GPIOs
-    app.get('/thing/gpios', function(req, res){
+    app.get('/thing/gpio', function(req, res){
         res.json(app.thing_gpiosAction());
     });
 
     // Describe the GPIO
     app.get('/thing/gpio/:slug', function(req, res){
-        res.json(app.thing_gpio_nameAction(req.params.slug));
+        res.json(app.thing_gpio_nameAction(req));
     });
 
     // List all the GPIO's events
-    app.get('/thing/gpio/:slug/events', function(req, res){
+    app.get('/thing/gpio/:slug/event', function(req, res){
         res.json(app.thing_gpio_eventsAction(req.params.slug));
     });
 
@@ -48,7 +47,7 @@ module.exports = function(app){
     });
 
     // List all the GPIO's jobs
-    app.get('/thing/gpio/:slug/jobs', function(req, res){
+    app.get('/thing/gpio/:slug/job', function(req, res){
         res.json(app.thing_gpio_jobsAction(req.params.slug));
     });
 

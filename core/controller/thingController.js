@@ -1,31 +1,100 @@
 module.exports = function(app){
 
+    var response = {
+		status_code : 200,
+		message : "success",
+		data : {}
+    };
+
 	app.thingAction = function(req) {
-		return app.Thing.get();
+		
+		try {
+		    response.data = app.Thing.get();
+		}
+		catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 
 	app.thing_gpiosAction = function(req) {
-		return app.Thing.get().gpios;
+
+		try {
+		    response.data = app.Thing.get().gpios;
+		}
+		catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 
 	app.thing_gpio_nameAction = function(req) {
-		return app.Thing.get().get_gpio(req);
+		
+		try {
+		    response.data = app.Thing.get().get_gpio(req);
+		}
+		catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 
 	app.thing_gpio_eventsAction = function(req) {
-		return app.Thing.get().get_gpio(req).events;
+		
+		try {
+		    response.data = app.Thing.get().get_gpio(req).events;
+		}
+		catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 
 	app.thing_gpio_eventAction = function(req_slug, req_id) {
-		return app.Thing.get().get_gpio(req_slug).get_event(req_id);
+
+		try {
+		    response.data = app.Thing.get().get_gpio(req_slug).get_event(req_id);
+		}
+		catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 
 	app.thing_gpio_jobsAction = function(req) {
-		return app.Thing.get().get_gpio(req).jobs;
+		
+		try {
+		    response.data = app.Thing.get().get_gpio(req).jobs;
+		}
+		catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 
 	app.thing_gpio_jobAction = function(req_slug, req_id) {
-		return app.Thing.get().get_gpio(req_slug).get_job(req_id);
+		
+		try {
+		    response.data = app.Thing.get().get_gpio(req_slug).get_job(req_id);
+		}
+		catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 
 	app.thing_editAction = function(thing) {

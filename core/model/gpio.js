@@ -96,34 +96,3 @@ Gpio.prototype.save = function() {
 require('../../src/gpio')(Gpio);
 
 module.exports = Gpio;
-
-// var gpioStream = function(gpio) {
-// 	gpio.jobs.forEach(function(element){
-// 		element.schedule(gpio);
-// 	});
-// 	setInterval(function(){
-// 		gpio.events.forEach(function(element){
-// 			element.listen(gpio);
-// 		});
-// 	}, 1000);	
-// };
-
-// Gpio.prototype.getName = function() {
-//     return this.name;
-// };
-
-// Gpio.prototype.getDescription = function() {
-//     return this.description;
-// };
-
-// Gpio.prototype.getEvents = function() {
-//     return this.events;
-// };
-
-// Gpio.prototype.getJobs = function() {
-//     return this.jobs;
-// };
-
-// Gpio.prototype.getValue = function() {
-//     return eval('this.'+this.accessValue+'()');
-// };
