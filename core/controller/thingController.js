@@ -8,7 +8,7 @@ module.exports = function(app){
 			message : "success",
 			data : {}
 	    };
-	    	
+
 		try {
 		    response.data = app.Thing.get();
 		}
@@ -110,7 +110,7 @@ module.exports = function(app){
 		return response;
 	}
 
-	app.thing_gpio_jobAction = function(req_slug, req_id) {
+	app.thing_gpio_jobAction = function(req) {
 	    var response = {
 			status_code : 200,
 			message : "success",
@@ -118,7 +118,7 @@ module.exports = function(app){
 	    };
 	    			
 		try {
-		    response.data = app.Thing.get().get_gpio(req_slug).get_job(req_id);
+		    response.data = app.Thing.get().get_gpio(req).get_job(req);
 		}
 		catch(err) {
 			response.status_code = err.code;

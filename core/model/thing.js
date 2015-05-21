@@ -96,7 +96,7 @@ Thing.prototype.get_gpio = function(req) {
 		}
 		iter++;
 	}
-	console.log('BEFORE '+result);
+	
 	if(!result) {
 		throw new AppException(204, "No content found for "+req.params.slug);	
 	}

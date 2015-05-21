@@ -57,15 +57,25 @@ Gpio.prototype.get_event = function(req) {
 	return result;    
 };
 
-Gpio.prototype.get_job = function(id) {
+Gpio.prototype.get_job = function(req) {
+
+	if(typeof req.params.id == 'undefined'){
+		throw new AppException(400, "missing id argument");
+	}
+
 	var iter = 0;
 	var result = false;
 	while(iter <= this.jobs.length - 1) {
-		if(this.jobs[iter].id == id){
+		if(this.jobs[iter].id == req.params.id){
 			return this.jobs[iter];
 		}
 		iter++;
 	}
+
+	if(!result) {
+		throw new AppException(204, "No content found for "+req.params.id);	
+	}
+	
 	return result;    
 };
 
