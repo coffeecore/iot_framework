@@ -58,6 +58,20 @@ module.exports = function(app){
 
 
     /*
+        PUT method route
+    */
+
+    // Edit Thing
+    app.put('/thing', function(req, res){
+        res.json(app.thing_editAction(req.body.thing));
+    });
+
+    // Edit Thing
+    app.put('/thing/gpio', function(req, res){
+        res.json(app.thing_editAction(req));
+    });
+
+    /*
     	POST method route
     */
     
@@ -76,15 +90,6 @@ module.exports = function(app){
         res.send('@TODO');
     });
 
-
-    /*
-    	PUT method route
-    */
-
-    // Edit Thing
-    app.put('/thing', function(req, res){
-        res.json(app.thing_editAction(req.body.thing));
-    });
 
     /*
     	DELETE method route

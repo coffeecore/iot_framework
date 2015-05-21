@@ -128,27 +128,31 @@ module.exports = function(app){
 		return response;
 	}
 
-	app.thing_editAction = function(thing) {
+	app.thing_editAction = function(req) {
 	    var response = {
 			status_code : 200,
 			message : "success",
 			data : {}
 	    };
-	    	
-		if(thing.name != app.Thing.name){
-			app.Thing.name = thing.name;
+	    
+		if(typeof req.body.thing == 'undefined') {
+			throw new AppException(400, "missing thing argument");
 		}
 
-		if(thing.description != app.Thing.description){
-			app.Thing.description = thing.description;
+		if(req.body.thing.name != app.Thing.name){
+			app.Thing.name = req.body.thing.name;
 		}
 
-		if(thing.author != app.Thing.author){
-			app.Thing.author = thing.author;
+		if(req.body.thing.description != app.Thing.description){
+			app.Thing.description = req.body.thing.description;
+		}
+
+		if(req.body.thing.author != app.Thing.author){
+			app.Thing.author = req.body.thing.author;
 		}
 
 		app.Thing.gpios.forEach(function(gpio){
-			thing.gpios.forEach(function(g){
+			req.body.thing.gpios.forEach(function(g){
 				if(gpio.id == g.id) {
 					if(g.name != gpio.name) {
 						gpio.name = g.name;
