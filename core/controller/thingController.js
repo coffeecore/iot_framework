@@ -1,6 +1,9 @@
 module.exports = function(app){
 
-
+	var AppException = function(code, message) {
+		this.code    = code;
+		this.message = message;
+	};
 
 	app.thingAction = function(req) {
 	    var response = {
