@@ -51,6 +51,7 @@ module.exports = function(app){
 		catch(err) {
 			response.status_code = err.code;
 			response.message     = err.message;
+			console.log(response);
 		}
 
 		return response;
@@ -188,6 +189,19 @@ module.exports = function(app){
 			});
 		});
 
-		app.Thing.save();
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+
+		try {
+			response.data = app.Thing.save();	
+		} catch(err) {
+			response.status_code = err.code;
+			response.message     = err.message;
+		}
+
+		return response;
 	}
 }
