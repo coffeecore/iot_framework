@@ -51,7 +51,6 @@ module.exports = function(app){
 		catch(err) {
 			response.status_code = err.code;
 			response.message     = err.message;
-			return response;
 		}
 
 		return response;

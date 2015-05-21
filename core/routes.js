@@ -36,6 +36,7 @@ module.exports = function(app){
     // Describe the GPIO
     app.get('/thing/gpio/:slug', function(req, res){
         var r = app.thing_gpio_nameAction(req);
+        console.log(r);
         res.status(r.status_code).json(r);
     });
 
@@ -90,7 +91,8 @@ module.exports = function(app){
 
     // Edit Thing
     app.put('/thing', function(req, res){
-        res.json(app.thing_editAction(req.body.thing));
+        var r = app.thing_editAction(req.body.thing);
+        res.status(r.status_code).json(r);
     });
 
     /*
