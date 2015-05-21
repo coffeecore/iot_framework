@@ -14,6 +14,7 @@ function Job (data) {
 	this.name      = data.name;
 	this.frequency = data.frequency;
 	this.schedules = new Array();
+	this.history   = new Array();
 }
 
 Job.prototype.schedule = function() {
@@ -21,6 +22,7 @@ Job.prototype.schedule = function() {
 	var cron = schedule.scheduleJob(this.frequency, function(){
 		eval('that.'+that.callback);
 	});
+	cron.trackInvocation(this.history);
 	this.schedules.push(cron);
 };
 

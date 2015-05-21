@@ -217,7 +217,7 @@ module.exports = function(app){
 			message : "success",
 			data : {}
 	    };
-	    
+
 		if(typeof req.body.gpio == 'undefined') {
 			throw new AppException(400, "missing gpio argument");
 		}
