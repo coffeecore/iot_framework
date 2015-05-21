@@ -25,14 +25,14 @@ function Job (data) {
 
 Job.prototype.schedule = function() {
 	var that = this;
+	
 	var cron = schedule.scheduleJob(this.frequency, function(){
-		ee.emit("JOB - "+that.name, {date: new Date().timeNow()});
+		ee.emit("JOB - "+that.id, {date: new Date().timeNow(), job: this});
 		eval('that.'+that.callback);		
 	});
 
-	ee.on("JOB - "+that.name, function (data) {
-	    console.log(data);
-	    // todo push in history
+	ee.on("JOB - "+that.id, function (data) {
+		this.history.push(data);
 	});
 
 	this.schedules.push(cron);
