@@ -25,9 +25,9 @@ function Job (data) {
 
 Job.prototype.schedule = function() {
 	var that = this;
-	var o = this;
-	var cron = schedule.scheduleJob(this.frequency, function(o){
-		ee.emit("JOB - "+that.id, {date: new Date().timeNow(), job: o});
+
+	var cron = schedule.scheduleJob(this.name, this.frequency, function(){
+		ee.emit("JOB - "+that.id, {date: new Date().timeNow(), job: that});
 		eval('that.'+that.callback);		
 	});
 
