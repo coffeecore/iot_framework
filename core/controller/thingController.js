@@ -42,11 +42,11 @@ module.exports = function(app){
 	    var response = {
 			status_code : 200,
 			message : "success",
-			data : {}
+			data : []
 	    };
 	    			
 		try {
-		    response.data = new Array().push(app.Thing.get().get_gpio(req));
+		    response.data.push(app.Thing.get().get_gpio(req));
 		}
 		catch(err) {
 			response.status_code = err.code;
