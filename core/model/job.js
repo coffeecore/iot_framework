@@ -24,7 +24,7 @@ Job.prototype.schedule = function() {
 	var that = this;
 	var cron = schedule.scheduleJob(this.frequency, function(){
 		eval('that.'+that.callback);
-		ee.emit("JOB -"that.name, "data ok !");
+		ee.emit("JOB -"+that.name, "data ok !");
 	});
 
 	ee.on("JOB -"that.name, function (data) {
