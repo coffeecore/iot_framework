@@ -4,6 +4,7 @@ var g = new Generator();
 var fs   = require('fs');
 
 var EventEmitter = require("events").EventEmitter;
+var ee = new EventEmitter();
 
 var AppException = function(code, message) {
 	this.code    = code;
@@ -23,11 +24,12 @@ Job.prototype.schedule = function() {
 	var that = this;
 	var cron = schedule.scheduleJob(this.frequency, function(){
 		eval('that.'+that.callback);
+		ee.emit("JOB -"that.name, "data ok !");
 	});
 
-	var ee = new EventEmitter();
-	ee.on("run", function () {
+	ee.on("JOB -"that.name, function (data) {
 	    console.log("event has occured");
+	    console.log(data);
 	});
 
 	this.schedules.push(cron);
