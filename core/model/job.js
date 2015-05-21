@@ -26,7 +26,7 @@ Job.prototype.schedule = function() {
 	});
 
 	var ee = new EventEmitter();
-	ee.on("scheduled", function () {
+	ee.on("run", function () {
 	    console.log("event has occured");
 	});
 
