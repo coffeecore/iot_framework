@@ -19,7 +19,7 @@ function Job (data) {
 	this.callback  = data.callback+"()";
 	this.name      = data.name;
 	this.frequency = data.frequency;
-	this.schedules = new Array();
+	//this.schedules = new Array();
 	this.history   = new Array();
 }
 
@@ -27,7 +27,7 @@ Job.prototype.schedule = function() {
 	var that = this;
 
 	var cron = schedule.scheduleJob(this.frequency, function(){
-		ee.emit("JOB - "+that.id, {date: new Date().timeNow(), job: that.name});
+		ee.emit("JOB - "+that.id, {date: new Date().timeNow(), job: that});
 		eval('that.'+that.callback);		
 	});
 
@@ -35,7 +35,7 @@ Job.prototype.schedule = function() {
 		that.history.push(data);
 	});
 
-	this.schedules.push(cron);
+	//this.schedules.push(cron);
 };
 
 Job.prototype.save = function(){
