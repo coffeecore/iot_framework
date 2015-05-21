@@ -50,7 +50,9 @@ Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing.json');
 	var that = this;
 	
-
+	if(typeof tampon !== 'undefined') {
+		throw new AppException(404, "Can't find the file conf/thing.json");	
+	}
 
 	if(this.name != tampon.name)
 	{
@@ -69,7 +71,7 @@ Thing.prototype.save = function() {
 
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 		if (err) {
-			throw new AppException(400, "missing slug argument");
+			throw new AppException(503, "Can't save the thing | "+err.message);
 		} else {
 			console.log('Thing saved : ['+that.name+']');	
 		}	

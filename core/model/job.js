@@ -3,6 +3,11 @@ var Generator = require('id-generator');
 var g = new Generator();
 var fs   = require('fs');
 
+var AppException = function(code, message) {
+	this.code    = code;
+	this.message = message;
+};
+
 function Job (data) {
 	this.id        = data.id;
 	this.callback  = data.callback+"()";
@@ -23,6 +28,10 @@ Job.prototype.save = function(){
 	var tampon = require('../../conf/thing.json');
 	var that = this;
 
+	if(typeof tampon !== 'undefined') {
+		throw new AppException(404, "Can't find the file conf/thing.json");	
+	}
+	
 	tampon.gpios.forEach(function(gpio){
 		gpio.jobs.forEach(function(g){
 			if(that.id == g.id) {
@@ -36,7 +45,7 @@ Job.prototype.save = function(){
 				
 				fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 					if (err) {
-						return console.log(err);
+						throw new AppException(503, "Can't save the job | "+err.message);
 					} else {
 						console.log('Job saved : ['+that.id+']');	
 					}	

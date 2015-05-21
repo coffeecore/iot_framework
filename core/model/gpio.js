@@ -75,13 +75,17 @@ Gpio.prototype.get_job = function(req) {
 	if(!result) {
 		throw new AppException(204, "No content found for "+req.params.id);	
 	}
-	
+
 	return result;    
 };
 
 Gpio.prototype.save = function() {
 	var tampon = require('../../conf/thing.json');
 	var that = this;
+
+	if(typeof tampon !== 'undefined') {
+		throw new AppException(404, "Can't find the file conf/thing.json");	
+	}
 
 	tampon.gpios.forEach(function(gpio){
 		if(gpio.id == that.id) {
@@ -100,7 +104,7 @@ Gpio.prototype.save = function() {
 
 			fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 				if (err) {
-					return console.log(err);
+					throw new AppException(503, "Can't save the gpio | "+err.message);
 				} else {
 					console.log('Gpio saved : ['+that.id+']');	
 				}	
