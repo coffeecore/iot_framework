@@ -6,6 +6,7 @@ module.exports = function(app){
         res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control");
 
         if (req.method === 'OPTIONS') {
+            console.log('IN OPTION REQUEST');
             res.statusCode = 204;
             return res.end();
         } else {
@@ -37,7 +38,7 @@ module.exports = function(app){
     app.get('/thing/gpio/:slug', function(req, res){
         var r = app.thing_gpio_nameAction(req);
         console.log(r);
-        res.status(r.status_code).json(r);
+        res.json(r);
     });
 
     // List all the GPIO's events
