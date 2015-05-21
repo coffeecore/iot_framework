@@ -6,7 +6,7 @@ var AppException = function(code, message) {
 	this.message = message;
 };
 
-function Thing (app, data) {
+function Thing (data) {
 	// Build Gpios
 	var thing_gpios = new Array();
 	data.gpios.forEach(function(gpio){
