@@ -46,7 +46,7 @@ module.exports = function(app){
 	    };
 	    			
 		try {
-		    response.data = app.Thing.get().get_gpio(req);
+		    response.data = new Array().push(app.Thing.get().get_gpio(req));
 		}
 		catch(err) {
 			response.status_code = err.code;

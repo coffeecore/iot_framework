@@ -50,6 +50,8 @@ Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing.json');
 	var that = this;
 	
+
+
 	if(this.name != tampon.name)
 	{
 		tampon.name = this.name;
@@ -101,7 +103,7 @@ Thing.prototype.get_gpio = function(req) {
 		throw new AppException(204, "No content found for "+req.params.slug);	
 	}
 
-	return new Array().push(result);
+	return result;
 };
 
 module.exports = Thing;

@@ -6,7 +6,6 @@ module.exports = function(app){
         res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control");
 
         if (req.method === 'OPTIONS') {
-            console.log('IN OPTION REQUEST');
             res.statusCode = 204;
             return res.end();
         } else {
@@ -24,45 +23,37 @@ module.exports = function(app){
    
    	// Describe all the thing
     app.get('/thing', function(req, res){
-        var r = app.thingAction();
-        res.status(r.status_code).json(r);
+        res.json(app.thingAction());
     });
 
     // List all the thing's GPIOs
     app.get('/thing/gpio', function(req, res){
-        var r = app.thing_gpiosAction();
-        res.status(r.status_code).json(r);
+        res.json(app.thing_gpiosAction());
     });
 
     // Describe the GPIO
     app.get('/thing/gpio/:slug', function(req, res){
-        var r = app.thing_gpio_nameAction(req);
-        console.log(r);
-        res.json(r);
+        res.json(app.thing_gpio_nameAction(req));
     });
 
     // List all the GPIO's events
     app.get('/thing/gpio/:slug/event', function(req, res){
-        var r = app.thing_gpio_eventsAction(req);
-        res.status(r.status_code).json(r);
+        res.json(app.thing_gpio_eventsAction(req));
     });
 
     // Describe the event
     app.get('/thing/gpio/:slug/event/:id', function(req, res){
-        var r = app.thing_gpio_eventAction(req);
-        res.status(r.status_code).json(r);
+        res.json(app.thing_gpio_eventAction(req));
     });
 
     // List all the GPIO's jobs
     app.get('/thing/gpio/:slug/job', function(req, res){
-        var r = app.thing_gpio_jobsAction(req);
-        res.status(r.status_code).json(r);
+        res.json(app.thing_gpio_jobsAction(req));
     });
 
     // Describe the job
     app.get('/thing/gpio/:slug/job/:id', function(req, res){
-        var r = app.thing_gpio_jobAction(req);
-        res.status(r.status_code).json(r);
+        res.json(app.thing_gpio_jobAction(req));
     });
 
 
@@ -92,8 +83,7 @@ module.exports = function(app){
 
     // Edit Thing
     app.put('/thing', function(req, res){
-        var r = app.thing_editAction(req.body.thing);
-        res.status(r.status_code).json(r);
+        res.json(app.thing_editAction(req.body.thing));
     });
 
     /*
