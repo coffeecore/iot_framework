@@ -1,6 +1,10 @@
-var Generator = require('id-generator');
-var g = new Generator();
-var fs   = require('fs');
+var Generator    = require('id-generator');
+var g            = new Generator();
+var fs           = require('fs');
+
+Date.prototype.timeNow = function () {
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
 
 var AppException = function(code, message) {
 	this.code    = code;
@@ -13,14 +17,16 @@ function Event (data) {
 		condition += " value"+element;
 	});
 
-	this.id             = data.id;
-	this.name           = data.name;
-	this.condition      = condition;
-	this.callback       = "this."+data.callback+"()";
+	this.id        = data.id;
+	this.name      = data.name;
+	this.condition = condition;
+	this.callback  = "this."+data.callback+"()";
+	this.history   = new Array();
 }
 
 Event.prototype.listen = function(value) {
 	if( eval(this.condition) ) {
+		this.history.push({date: new Date().timeNow(), event: this})
 		eval(this.callback);
 	}
 };
