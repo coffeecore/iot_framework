@@ -26,7 +26,7 @@ function Event (data) {
 
 Event.prototype.listen = function(value) {
 	if( eval(this.condition) ) {
-		this.history.push({date: new Date().timeNow(), event: this})
+		this.history.push({date: new Date().timeNow(), value: value})
 		eval(this.callback);
 	}
 };

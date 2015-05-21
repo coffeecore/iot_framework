@@ -23,11 +23,11 @@ function Job (data) {
 	this.history   = new Array();
 }
 
-Job.prototype.schedule = function() {
+Job.prototype.schedule = function(value) {
 	var that = this;
 
 	var cron = schedule.scheduleJob(this.frequency, function(){
-		ee.emit("JOB - "+that.id, {date: new Date().timeNow()});
+		ee.emit("JOB - "+that.id, {date: new Date().timeNow(), value: value});
 		eval('that.'+that.callback);		
 	});
 
