@@ -1,13 +1,14 @@
 module.exports = function(app){
 
-    var response = {
-		status_code : 200,
-		message : "success",
-		data : {}
-    };
+
 
 	app.thingAction = function(req) {
-		
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    	
 		try {
 		    response.data = app.Thing.get();
 		}
@@ -20,7 +21,12 @@ module.exports = function(app){
 	}
 
 	app.thing_gpiosAction = function(req) {
-
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    	
 		try {
 		    response.data = app.Thing.get().gpios;
 		}
@@ -33,7 +39,12 @@ module.exports = function(app){
 	}
 
 	app.thing_gpio_nameAction = function(req) {
-		
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    			
 		try {
 		    response.data = app.Thing.get().get_gpio(req);
 		}
@@ -46,7 +57,12 @@ module.exports = function(app){
 	}
 
 	app.thing_gpio_eventsAction = function(req) {
-		
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    			
 		try {
 		    response.data = app.Thing.get().get_gpio(req).events;
 		}
@@ -59,7 +75,12 @@ module.exports = function(app){
 	}
 
 	app.thing_gpio_eventAction = function(req) {
-
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    	
 		try {
 		    response.data = app.Thing.get().get_gpio(req).get_event(req);
 		}
@@ -72,7 +93,12 @@ module.exports = function(app){
 	}
 
 	app.thing_gpio_jobsAction = function(req) {
-		
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    			
 		try {
 		    response.data = app.Thing.get().get_gpio(req).jobs;
 		}
@@ -85,7 +111,12 @@ module.exports = function(app){
 	}
 
 	app.thing_gpio_jobAction = function(req_slug, req_id) {
-		
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    			
 		try {
 		    response.data = app.Thing.get().get_gpio(req_slug).get_job(req_id);
 		}
@@ -98,7 +129,12 @@ module.exports = function(app){
 	}
 
 	app.thing_editAction = function(thing) {
-
+	    var response = {
+			status_code : 200,
+			message : "success",
+			data : {}
+	    };
+	    	
 		if(thing.name != app.Thing.name){
 			app.Thing.name = thing.name;
 		}
