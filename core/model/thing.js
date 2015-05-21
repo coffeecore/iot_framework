@@ -50,7 +50,7 @@ Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing.json');
 	var that = this;
 	
-	if(typeof tampon !== 'undefined') {
+	if(typeof tampon == 'undefined') {
 		throw new AppException(404, "Can't find the file conf/thing.json");	
 	}
 
