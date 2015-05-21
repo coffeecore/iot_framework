@@ -27,7 +27,7 @@ Job.prototype.schedule = function() {
 		ee.emit("JOB -"+that.name, "data ok !");
 	});
 
-	ee.on("JOB -"that.name, function (data) {
+	ee.on("JOB -"+that.name, function (data) {
 	    console.log("event has occured");
 	    console.log(data);
 	});
