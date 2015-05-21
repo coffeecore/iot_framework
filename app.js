@@ -9,6 +9,8 @@ var file_object = require('./conf/thing');
 // Loading models
 var Thing = require('./core/model/thing');
 
+console.log(file_object);
+
 app.Thing = new Thing(file_object);
 
 app.Thing.run_events();
