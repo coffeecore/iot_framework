@@ -3,6 +3,8 @@ var Generator = require('id-generator');
 var g = new Generator();
 var fs   = require('fs');
 
+var EventEmitter = require("events").EventEmitter;
+
 var AppException = function(code, message) {
 	this.code    = code;
 	this.message = message;
@@ -22,7 +24,12 @@ Job.prototype.schedule = function() {
 	var cron = schedule.scheduleJob(this.frequency, function(){
 		eval('that.'+that.callback);
 	});
-	cron.trackInvocation(this.history);
+
+	var ee = new EventEmitter();
+	ee.on("scheduled", function () {
+	    console.log("event has occured");
+	});
+
 	this.schedules.push(cron);
 };
 
