@@ -5,12 +5,9 @@ var fs           = require('fs');
 var EventEmitter = require("events").EventEmitter;
 var ee           = new EventEmitter();
 
-
 Date.prototype.timeNow = function () {
      return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
-
-var currentdate = new Date(); 
 
 var AppException = function(code, message) {
 	this.code    = code;
@@ -29,12 +26,13 @@ function Job (data) {
 Job.prototype.schedule = function() {
 	var that = this;
 	var cron = schedule.scheduleJob(this.frequency, function(){
-		ee.emit("JOB - "+that.name, {date: currentdate.timeNow()});
+		ee.emit("JOB - "+that.name, {date: new Date().timeNow()});
 		eval('that.'+that.callback);		
 	});
 
 	ee.on("JOB - "+that.name, function (data) {
 	    console.log(data);
+	    // todo push in history
 	});
 
 	this.schedules.push(cron);
