@@ -32,7 +32,7 @@ Job.prototype.schedule = function() {
 	});
 
 	ee.on("JOB - "+that.id, function (data) {
-		this.history.push(data);
+		that.history.push(data);
 	});
 
 	this.schedules.push(cron);
