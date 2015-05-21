@@ -48,6 +48,9 @@ Thing.prototype.get = function(){
 
 Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing.json');
+
+	if
+
 	var that = this;
 	
 	if(this.name != tampon.name)
@@ -67,7 +70,7 @@ Thing.prototype.save = function() {
 
 	fs.writeFile('./conf/thing.json', JSON.stringify(tampon), function(err) {
 		if (err) {
-			return console.log(err);
+			throw new AppException(400, "missing slug argument");
 		} else {
 			console.log('Thing saved : ['+that.name+']');	
 		}	
@@ -96,12 +99,12 @@ Thing.prototype.get_gpio = function(req) {
 		}
 		iter++;
 	}
-	
+
 	if(!result) {
 		throw new AppException(204, "No content found for "+req.params.slug);	
 	}
 
-	return result;
+	return [result];
 };
 
 module.exports = Thing;
