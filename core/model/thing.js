@@ -78,7 +78,7 @@ Thing.prototype.add_gpio = function(gpio) {
 };
 
 Thing.prototype.get_gpio = function(req) {
-
+	console.log(app);
 	if(typeof req.params.slug == 'undefined'){
 		throw new app.AppException(400, "missing slug argument");
 	}

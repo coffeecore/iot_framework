@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.AppException = function(code, message) {
 	this.code    = code;
 	this.message = message;
-}
+};
 
 var file_object = require('./conf/thing');
 
