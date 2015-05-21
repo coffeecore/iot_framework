@@ -1,10 +1,16 @@
-var schedule = require('node-schedule');
-var Generator = require('id-generator');
-var g = new Generator();
-var fs   = require('fs');
-
+var schedule     = require('node-schedule');
+var Generator    = require('id-generator');
+var g            = new Generator();
+var fs           = require('fs');
 var EventEmitter = require("events").EventEmitter;
-var ee = new EventEmitter();
+var ee           = new EventEmitter();
+
+
+Date.prototype.timeNow = function () {
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
+
+var currentdate = new Date(); 
 
 var AppException = function(code, message) {
 	this.code    = code;
@@ -23,12 +29,11 @@ function Job (data) {
 Job.prototype.schedule = function() {
 	var that = this;
 	var cron = schedule.scheduleJob(this.frequency, function(){
-		eval('that.'+that.callback);
-		ee.emit("JOB -"+that.name, "data ok !");
+		ee.emit("JOB - "+that.name, {date: currentdate.timeNow()});
+		eval('that.'+that.callback);		
 	});
 
-	ee.on("JOB -"+that.name, function (data) {
-	    console.log("event has occured");
+	ee.on("JOB - "+that.name, function (data) {
 	    console.log(data);
 	});
 
