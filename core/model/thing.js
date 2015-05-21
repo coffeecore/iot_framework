@@ -49,8 +49,6 @@ Thing.prototype.get = function(){
 Thing.prototype.save = function() {
 	var tampon = require('../../conf/thing.json');
 
-	if
-
 	var that = this;
 	
 	if(this.name != tampon.name)
