@@ -3,6 +3,11 @@ var Event = require('./event');
 var slug  = require('slug');
 var fs   = require('fs');
 
+var AppException = function(code, message) {
+	this.code    = code;
+	this.message = message;
+};
+
 function Gpio (data) {
 	// Build Events
 	var gpio_events = new Array();
@@ -33,7 +38,7 @@ Gpio.prototype.value = function(){
 Gpio.prototype.get_event = function(req) {
 
 	if(typeof req.params.id == 'undefined'){
-		throw new app.AppException(400, "missing id argument");
+		throw new AppException(400, "missing id argument");
 	}
 
 	var iter = 0;
@@ -46,7 +51,7 @@ Gpio.prototype.get_event = function(req) {
 	}
 	
 	if(!result) {
-		throw new app.AppException(204, "No content found for "+req.params.id);	
+		throw new AppException(204, "No content found for "+req.params.id);	
 	}
 
 	return result;    
