@@ -63,7 +63,7 @@ module.exports = function(app){
 
     // Edit Thing
     app.put('/thing', function(req, res){
-        res.json(app.thing_editAction(req.body.thing));
+        res.json(app.thing_editAction(req));
     });
 
     // Edit GPIO

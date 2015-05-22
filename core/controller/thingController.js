@@ -137,7 +137,7 @@ module.exports = function(app){
 			message : "success",
 			data : {}
 	    };
-	    console.log(req.body);
+
 		if(typeof req.body.thing == 'undefined') {
 			throw new AppException(400, "missing thing argument");
 		}

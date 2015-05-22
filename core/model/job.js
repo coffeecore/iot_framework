@@ -19,7 +19,6 @@ function Job (data) {
 	this.callback  = data.callback+"()";
 	this.name      = data.name;
 	this.frequency = data.frequency;
-	//this.schedules = new Array();
 	this.history   = new Array();
 }
 
@@ -34,8 +33,6 @@ Job.prototype.schedule = function(value) {
 	ee.on("JOB - "+that.id, function (data) {
 		that.history.push(data);
 	});
-
-	//this.schedules.push(cron);
 };
 
 Job.prototype.save = function(){
